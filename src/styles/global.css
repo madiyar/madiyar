@@ -3,5 +3,13 @@
 }
 
 body {
-  color: red
+  background-color: #090909;
+  color: #31FF31;
+  font-family: 'Monument Extended';
+  font-weight: 900;
+  font-style: normal;
+}
+
+a {
+  color: #FF520E;
 }
