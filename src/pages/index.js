@@ -6,7 +6,6 @@ const IndexPage = () => {
   return (
     <Layout>
       <main>
-        <h1>Madiyar</h1>
         <Link to="/about">About</Link>
       </main>
     </Layout>

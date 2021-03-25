@@ -1,6 +1,10 @@
 import React from "react"
+import { Header } from ".."
 import "./styles.css"
 
 export default function Layout({ children }) {
-  return <div>{children}</div>
+  return <div>
+    <Header />
+    {children}
+  </div>
 }
