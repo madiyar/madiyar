@@ -1,6 +1,6 @@
-import * as React from "react"
+import React from "react"
 import styled from "styled-components";
-import { Main, Title, Link } from "../components";
+import { Main, Title, Link, SEO } from "../components";
 
 const Text = styled.p`
   font-size: 1.5em;
@@ -8,6 +8,7 @@ const Text = styled.p`
 
 const NotFoundPage = () => (
   <Main>
+    <SEO title="404: Not found" />
     <Title>Page not found</Title>
     <Text>
       Sorry{" "}

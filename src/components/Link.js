@@ -16,20 +16,22 @@ export const Link = styled(props => (
   padding: 0.5em;
   margin: 0.5em;
   font-size: 1.5em;
-  color: #005FD9;
+  color: var(--blue);
+  transition: all 1s ease;
   &.active {
+    animation: link 0.1s ease;
     font-size: 2.25em;
     font-weight: 900;
-    color: #FF520E;
+    color: var(--red);
     &:hover {
-      color: #FF520E;
+      color: var(--red);
     }
   }
   &:hover {
-    color: #009FFF;
+    color: var(--lightblue);
   }
   &:active, &:focus {
-    color: #FF520E;
+    color: var(--red);
   }
   &:first-child {
     padding-left: 0;

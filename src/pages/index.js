@@ -1,11 +1,63 @@
-import * as React from "react"
-import { Layout } from "../components"
+import React from "react"
+import styled from "styled-components"
+import { Layout, SEO } from "../components"
+import { basics } from '../data';
+import mail from '../images/mail.svg';
+
+const About = styled.p`
+  line-height: 2em;
+  text-align: justify;
+`;
+
+const Links = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1em;
+`;
+
+const Link = styled(({ to, children, ...rest }) => (
+  <a href={to} target="_blank" rel="noreferrer" {...rest}>{children}</a>
+))`
+  color: var(--green);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 15px 20px;
+  border: 2px solid var(--green);
+  border-radius: 999rem;
+  transition: transform 0.1s ease;
+  margin: 1em;
+  &>img {
+    margin-right: 0.5em;
+  }
+  &:hover {
+    transform: scale(1.2) rotate(2deg);
+  }
+`;
+
+const links = [
+  ...basics.profiles,
+  {
+    url: `mailto:${basics.email}`,
+    username: 'E-mail',
+    icon: mail
+  }
+];
 
 const IndexPage = () => {
   return (
     <Layout>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>ICONS</p>
+      <SEO title="About" />
+      <About>I'm a 22 y.o. software engineer based in Almaty, KZ specializing in frontend development.</About>
+      <Links>
+        {links.map(link => (
+          <Link to={link.url} key={link.url}>
+            <img src={link.icon} alt={link.url} />
+            {link.username}
+          </Link>
+        ))}
+      </Links>
     </Layout>
   )
 }
