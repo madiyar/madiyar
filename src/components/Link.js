@@ -15,12 +15,14 @@ export const Link = styled(props => (
   display: inline-block;
   padding: 0.5em;
   margin: 0.5em;
-  font-size: 1.5em;
+  font-size: var(--link-font);
   color: var(--blue);
-  transition: all 1s ease;
+  transition: font-size 1s ease, color 1s ease;
+  text-decoration: none;
   &.active {
+    text-decoration: underline;
     animation: link 0.1s ease;
-    font-size: 2.25em;
+    font-size: var(--active-link-font);
     font-weight: 900;
     color: var(--red);
     &:hover {

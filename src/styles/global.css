@@ -7,13 +7,26 @@
   --blue: #005FD9;
   --lightblue: #009FFF;
   --red: #FF520E;
+  --font-size: 14px;
+  --title-font: 4.5em;
+  --link-font: 1.5em;
+  --active-link-font: 2.25em;
 }
 
 body {
   background-color: #090909;
   color: var(--green);
   font-family: 'Monument Extended', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
-  font-size: 14px;
+  font-size: var(--font-size);
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    --font-size: 14px;
+    --title-font: 3em;
+    --link-font: 1.1em;
+    --active-link-font: 1.5em;
+  }
 }
 
 span[role=img] {
@@ -23,10 +36,10 @@ span[role=img] {
 @keyframes link {
   from {
     color: var(--blue);
-    font-size: 1.5em;
+    font-size: var(--link-font);
   }
   to {
     color: var(--red);
-    font-size: 2.25em;
+    font-size: var(--active-link-font);
   }
 }
