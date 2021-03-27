@@ -1,7 +1,7 @@
 import React from 'react';
 import pdfMake from 'pdfmake/build/pdfmake';
 import vfsFonts from 'pdfmake/build/vfs_fonts';
-import cv from '../data/cv';
+import { cv } from '../data';
 
 export const CV = () => {
   const downloadCV = () => {

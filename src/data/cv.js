@@ -195,7 +195,7 @@ const styles = {
   }
 };
 
-export default {
+export const cv = {
   pageMargins: [45, 40, 20, 40],
   info: {
     title: info.fullName,
