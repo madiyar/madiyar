@@ -8,13 +8,14 @@
   --bg: #090909;
   --green: #31FF31;
   --darkgreen: #298b29;
-  --blue: #005FD9;
+  --blue: #024091;
   --lightblue: #009FFF;
   --red: #FF520E;
   --font-size: 14px;
   --title-font: 4.5em;
   --link-font: 1.5em;
   --active-link-font: 2.25em;
+  --project-grid: repeat(2, 1fr);
 }
 
 body {
@@ -30,12 +31,14 @@ button {
   font-family: 'Monument Extended', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
 }
 
+/* mobile adaptive */
 @media only screen and (max-width: 600px) {
   :root {
     --font-size: 14px;
     --title-font: 3em;
     --link-font: 1.1em;
     --active-link-font: 1.5em;
+    --project-grid: 1fr;
   }
 }
 
@@ -46,7 +49,7 @@ span[role=img] {
 @keyframes link {
   from {
     color: var(--blue);
-    font-size: var(--link-font);
+    font-size: calc(var(--active-link-font) - var(--link-font));
   }
   to {
     color: var(--red);

@@ -25,6 +25,7 @@ export const Link = styled(props => (
     font-size: var(--active-link-font);
     font-weight: 900;
     color: var(--red);
+    transform: rotate(-1deg);
     &:hover {
       color: var(--red);
     }

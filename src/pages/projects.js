@@ -1,11 +1,21 @@
 import React from 'react';
-import { Layout, SEO } from '../components';
+import styled from 'styled-components';
+import { Layout, SEO, Project } from '../components';
 import { projects } from '../data';
+
+const Grid = styled.section`
+  display: grid;
+  grid-template-columns: var(--project-grid);
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+`;
 
 const ProjectsPage = () => (
   <Layout>
     <SEO title="Projects" />
-    {projects.map(project => <div>{project.name}</div>)}
+    <Grid>
+      {projects.map(project => <Project key={project.name} data={project} />)}
+    </Grid>
   </Layout>
 );
 
