@@ -36,10 +36,7 @@ export const Header = () => (
       <Nav>
         {links.map(link => <Link key={link.to} to={link.to}>{link.title}</Link>)}
       </Nav>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Toggle />
-        <span>en</span>
-      </div>
+      <Toggle />
     </Menu>
   </header>
 );
