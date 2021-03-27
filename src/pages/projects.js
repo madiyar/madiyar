@@ -1,10 +1,11 @@
 import React from 'react';
 import { Layout, SEO } from '../components';
+import { projects } from '../data';
 
 const ProjectsPage = () => (
   <Layout>
     <SEO title="Projects" />
-    <p>PROJECT LIST AS CARDS</p>
+    {projects.map(project => <div>{project.name}</div>)}
   </Layout>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Title } from '.';
+import { Link, Title, Toggle } from '.';
 import { basics } from '../data';
 
 const links = [
@@ -36,8 +36,8 @@ export const Header = () => (
       <Nav>
         {links.map(link => <Link key={link.to} to={link.to}>{link.title}</Link>)}
       </Nav>
-      <div>
-        <span style={{ marginRight: 8 }}>dark</span>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Toggle />
         <span>en</span>
       </div>
     </Menu>
