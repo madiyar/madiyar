@@ -12,7 +12,7 @@ const About = styled.p`
 const Links = styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -1em;
+  margin: -1em;
 `;
 
 const Link = styled(({ to, children, ...rest }) => (

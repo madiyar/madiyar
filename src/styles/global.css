@@ -1,9 +1,12 @@
 * {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 :root {
   --green: #31FF31;
+  --darkgreen: #298b29;
   --blue: #005FD9;
   --lightblue: #009FFF;
   --red: #FF520E;
@@ -14,10 +17,12 @@
 }
 
 body {
+  margin: 0;
   background-color: #090909;
   color: var(--green);
   font-family: 'Monument Extended', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
   font-size: var(--font-size);
+  transform: skewY(0.3deg);
 }
 
 @media only screen and (max-width: 600px) {

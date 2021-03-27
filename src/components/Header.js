@@ -22,8 +22,15 @@ const Nav = styled.nav`
   flex-wrap: wrap;
 `;
 
+const Hi = styled.h5`
+  margin: 0;
+  color: var(--darkgreen);
+  font-weight: 500;
+`;
+
 export const Header = () => (
   <header>
+    <Hi>Hi, My name is</Hi>
     <Title>{basics.name}</Title>
     <Menu>
       <Nav>
