@@ -21,7 +21,7 @@ export const Toggle = () => {
 
   return (
     <Btn onClick={toggle} type="button">
-      <img src={dark ? moon : sun} />
+      <img src={dark ? moon : sun} alt="theme toggler" />
     </Btn>
   );
 };
