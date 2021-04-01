@@ -6,8 +6,8 @@ import telegram from '../images/telegram.svg';
 export const basics = {
   name: "Madiyar Bolatov",
   label: "Frontend Developer",
-  email: "madiyaar@internet.ru",
-  website: "https://madiyar.github.io",
+  email: "hi@madiyar.dev",
+  website: "https://madiyar.dev",
   birthday: "1998-05-24", //
   summary: `I'm a [yo] y.o. software engineer based in ⛰️ [city], [countryCode] specializing in frontend development.`,
   picture: "",
