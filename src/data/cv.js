@@ -1,156 +1,97 @@
-// playground requires you to assign document definition to a variable called dd
+import { basics } from "./basics";
+import { languages } from './languages';
+import { education } from './education';
+import { skills } from './skills';
+import { projects } from './projects';
+import { work } from './work';
 
 // DATA
-const info = {
-  fullName: 'Madiyar Bolatov',
-  job: 'Frontend Developer',
-  age: 22,
-  city: 'Almaty',
-  country: 'KZ',
-  links: [
+const DATA = {
+  contacts: [
     {
-      title: 'Email',
-      url: 'mailto:madiyaar@internet.ru',
-      text: 'madiyaar@internet.ru'
+      network: 'Website',
+      url: basics.website,
+      username: basics.website
     },
     {
-      title: 'Telegram',
-      url: 'https://t.me/kawaii_neko',
-      text: '@kawaii_neko'
+      network: 'E-mail',
+      url: `mailto:${basics.email}`,
+      username: basics.email
     },
-    {
-      title: 'GitHub',
-      url: 'https://github.com/madiyar',
-      text: '@madiyar'
-    },
-    {
-      title: 'LinkedIn',
-      url: 'https://linkedin.com/in/madiyarkz',
-      text: '@madiyarkz'
-    }
+    ...basics.profiles.map(item => ({ ...item, username: `@${item.username}`}))
   ],
-  languages: [
-    { title: 'Kazakh', grade: 'Native' },
-    { title: 'Russian', grade: 'Fluent' },
-    { title: 'English', grade: 'Intermediate' }
-  ],
-  jobs: [
-    {
-      job: 'Junior Frontend Developer',
-      company: 'DAR Tech',
-      city: 'Almaty',
-      start_date: '2020-05-11',
-      info: 'Translating complex UX/UI designs, focusing on HTML5, SVG, CSS3, JavaScript and AngularJS.'
-    },
-    {
-      job: 'Web Fullstack Intern',
-      company: 'DAR Tech',
-      city: 'Almaty',
-      start_date: '2020-01-21',
-      end_date: '2020-04-01',
-      info: 'Translating complex UX/UI designs, focusing on HTML5, SVG, CSS3, JavaScript and AngularJS.'
-    }
-  ],
-  edu: [
-    {
-      university: 'Satbayev University',
-      gpa: 3.3,
-      city: 'Almaty',
-      grade: 'Bachelor degree',
-      start_date: '2017-08-21',
-      end_date: '2020-06-02',
-      spec: 'Information Systems'
-    }
-  ],
-  skills: [
-    'JavaScript', 'HTML/CSS', 'SCSS',
-    'TypeScript', 'React', 'Vue.js',
-    'Redux', 'Next.js', 'Gatsby',
-    'Three.js', 'Nest.js', 'Git',
-    'Redux Saga', 'PHP', 'Figma'
-  ],
-  projects: [
-    {
-      name: 'Draw Hack',
-      link: 'https://github.com/madiyar/draw-hack',
-      description: 'Translating complex UX/UI designs, focusing on HTML5, SVG, CSS3, JavaScript and AngularJS.'
-    }
-  ]
+  skills: [].concat(...skills?.map(s => s.keywords))
 };
 
 // PROFILE
-const profile = [
+const PROFILE = [
   { text: 'Profile', style: 'header' },
-  {
-    text: [`I'm a `, { text: info.age, style: 'accent' }, ` y.o. software engineer based in `, { text: `${info.city}, ${info.country}`, style: 'accent' },` specializing in `, { text: 'frontend', style: 'accent' }, ` development.`],
-    style: 'summaryStyle',
-    marginBottom: 16
-  },
+  { text: basics.summary, style: 'summaryStyle' }
 ];
 
 // WORK EXPERIENCE
-const jobs = [
+const JOBS = [
   {
     text: ['Work Experience ', { text: '— 1.5 years', color: '#888', bold: false }],
     style: 'header'
   },
-  ...info.jobs.map(item => [
-    { text: `${item.job} @ ${item.company}, ${item.city}`, style: 'jobTitle' },
-    { text: `${item.start_date} — ${item.end_date ? item.end_date : 'Present'}`, style: 'jobSubtitle' },
-    { text: item.info, style: 'summaryStyle', marginBottom: 16 }
+  ...work.map(item => [
+    { text: `${item.position} @ ${item.company}, ${item.city}`, style: 'jobTitle' },
+    { text: `${item.startDate} — ${item.endDate ? item.endDate : 'Present'}`, style: 'jobSubtitle' },
+    { text: item.summary, style: 'summaryStyle' }
   ])
 ];
 
 // PROJECTS
-const projects = [
+const PROJECTS = [
   { text: 'Projects', style: 'header' },
-  ...info.projects.map(item => [
+  ...projects.map(item => [
     { text: item.name, style: 'jobTitle' },
-    { text: item.link, style: 'jobSubtitle' },
-    { text: item.description, style: 'summaryStyle', marginBottom: 16 }
+    { text: item.url, style: 'jobSubtitle' },
+    { text: item.summary, style: 'summaryStyle' }
   ])
 ];
 
 // -------------------------------------------------------------------
 
 // CONTACTS
-const contacts = [
+const CONTACTS = [
   { text: 'Contacts', style: 'header' },
   {
-    style: 'contactsStyle',
-    text: info.links.map(link => ({
-      text: `${link.title}: ${link.text}\n`,
+    style: 'listStyle',
+    text: DATA.contacts.map(link => ({
+      text: `${link.network}: ${link.username}\n`,
       link: link.url
     }))
   }
 ];
 
 // SKILLS
-const skills = [
+const SKILLS = [
   { text: 'Skills', style: 'header' },
   {
-    style: 'contactsStyle', 
-    text: info.skills.map(skill => ({ text: `${skill}, `}))
+    style: 'listStyle', 
+    text: DATA.skills.map(skill => ({ text: `${skill}, `}))
   }
 ];
 
 // EDUCATION
-const education = [
+const EDUCATION = [
   { text: 'Education', style: 'header' },
-  ...info.edu.map(item => [
-    { text: `${item.university}, ${item.city}`, style: 'jobTitle' },
-    { text: `${item.start_date} — ${item.end_date ? item.end_date : 'Present'}`, style: 'jobSubtitle' },
-    { text: `${item.grade}, \n${item.spec}, \nGPA: ${item.gpa}`, style: 'contactsStyle', marginBottom: 8 }
+  ...education.map(item => [
+    { text: `${item.institution}, ${item.city}`, style: 'jobTitle' },
+    { text: `${item.startDate} — ${item.endDate ? item.endDate : 'Present'}`, style: 'jobSubtitle' },
+    { text: `${item.studyType} degree, \n${item.area}, \nGPA: ${item.gpa}`, style: 'listStyle', marginBottom: 8 }
   ])
 ];
 
 // LANGUAGES
-const languages = [
+const LANGUAGES = [
   { text: 'Languages', style: 'header' },
   {
-    style: 'contactsStyle', 
-    text: info.languages.map(lang => ({
-      text: `${lang.title} — ${lang.grade}\n`
+    style: 'listStyle', 
+    text: languages.map(lang => ({
+      text: `${lang.language} — ${lang.fluency}\n`
     }))
   }
 ];
@@ -171,17 +112,14 @@ const styles = {
     margin: [0, 8, 0, 8],
     color: '#0af'
   },
-  accent: {
-    color: '#0af',
-    bold: true
-  },
-  contactsStyle: {
+  listStyle: {
     fontSize: 12,
     lineHeight: 1.5
   },
   summaryStyle: {
     fontSize: 14,
-    alignment: 'justify'
+    alignment: 'justify',
+    marginBottom: 16
   },
   jobTitle: {
     bold: true,
@@ -198,25 +136,25 @@ const styles = {
 export const cv = {
   pageMargins: [45, 40, 20, 40],
   info: {
-    title: info.fullName,
-    author: info.fullName,
+    title: basics.name,
+    author: basics.name,
     subject: 'CV',
   },
   content: [
-    { text: info.fullName, style: 'fullName' },
-    { text: info.job, style: 'job' },
+    { text: basics.name, style: 'fullName' },
+    { text: basics.label, style: 'job' },
     {
       columns: [
         {
           // CONTENT
           width: '*',
-          stack: [ ...profile, ...jobs, ...projects ]
+          stack: [ ...PROFILE, ...JOBS, ...PROJECTS ]
         },
         {
           // SIDEBAR
           width: 210,
           marginLeft: 20,
-          stack: [ ...contacts, ...skills, ...education, ...languages ]
+          stack: [ ...CONTACTS, ...SKILLS, ...EDUCATION, ...LANGUAGES ]
         }
       ]
     },

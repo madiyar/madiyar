@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 // icons
 import github from '../images/github.svg';
 import linkedin from '../images/linkedin.svg';
@@ -9,7 +11,12 @@ export const basics = {
   email: "hi@madiyar.dev",
   website: "https://madiyar.dev",
   birthday: "1998-05-24", //
-  summary: `I'm a [yo] y.o. software engineer based in ⛰️ [city], [countryCode] specializing in frontend development.`,
+  get age() {
+    return moment().diff(moment(this.birthday), 'years')
+  },
+  get summary() {
+    return `I'm a ${this.age} y.o. software engineer based in ${this.location.city}, ${this.location.countryCode} specializing in frontend development.`
+  },
   picture: "",
   phone: "",
   location: {
@@ -21,6 +28,12 @@ export const basics = {
   },
   profiles: [
     {
+      network: "Telegram",
+      username: "kawaii_neko",
+      url: "https://t.me/kawaii_neko",
+      icon: telegram
+    },
+    {
       network: "GitHub",
       username: "madiyar",
       url: "https://github.com/madiyar",
@@ -31,12 +44,6 @@ export const basics = {
       username: "madiyarkz",
       url: "https://linkedin.com/in/madiyarkz",
       icon: linkedin
-    },
-    {
-      network: "Telegram",
-      username: "kawaii_neko",
-      url: "https://t.me/kawaii_neko",
-      icon: telegram
     }
   ]
 };
