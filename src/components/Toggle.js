@@ -13,9 +13,9 @@ const Btn = styled.button`
 `;
 
 export const Toggle = () => {
-  const [dark, setDark] = useState(localStorage.getItem('dark') === "true");
+  const [dark, setDark] = useState(typeof window !== 'undefined' && window.localStorage.getItem('dark') === "true");
   const toggle = () => {
-    localStorage.setItem('dark', !dark);
+    typeof window !== 'undefined' && window.localStorage.setItem('dark', !dark);
     setDark(s => !s);
   };
 
