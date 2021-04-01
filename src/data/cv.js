@@ -1,9 +1,12 @@
+import moment from 'moment';
 import { basics } from "./basics";
 import { languages } from './languages';
 import { education } from './education';
 import { skills } from './skills';
 import { projects } from './projects';
 import { work } from './work';
+
+const d = d => moment(d).format('MMM. YYYY');
 
 // DATA
 const DATA = {
@@ -20,7 +23,12 @@ const DATA = {
     },
     ...basics.profiles.map(item => ({ ...item, username: `@${item.username}`}))
   ],
-  skills: [].concat(...skills?.map(s => s.keywords))
+  skills: [].concat(...skills?.map(s => s.keywords)),
+  get exp() {
+    const startDate = work[work.length - 1].startDate;
+    const endDate = work[0].endDate || moment().format('YYYY-MM-DD');
+    return moment(endDate).diff(startDate, 'years', true).toFixed(1);
+  }
 };
 
 // PROFILE
@@ -32,12 +40,12 @@ const PROFILE = [
 // WORK EXPERIENCE
 const JOBS = [
   {
-    text: ['Work Experience ', { text: '— 1.5 years', color: '#888', bold: false }],
+    text: ['Work Experience ', { text: `— ${DATA.exp} years`, color: '#888', bold: false }],
     style: 'header'
   },
   ...work.map(item => [
     { text: `${item.position} @ ${item.company}, ${item.city}`, style: 'jobTitle' },
-    { text: `${item.startDate} — ${item.endDate ? item.endDate : 'Present'}`, style: 'jobSubtitle' },
+    { text: `${d(item.startDate)} — ${item.endDate ? d(item.endDate) : 'Present'}`, style: 'jobSubtitle' },
     { text: item.summary, style: 'summaryStyle' }
   ])
 ];
@@ -80,7 +88,7 @@ const EDUCATION = [
   { text: 'Education', style: 'header' },
   ...education.map(item => [
     { text: `${item.institution}, ${item.city}`, style: 'jobTitle' },
-    { text: `${item.startDate} — ${item.endDate ? item.endDate : 'Present'}`, style: 'jobSubtitle' },
+    { text: `${d(item.startDate)} — ${item.endDate ? d(item.endDate) : 'Present'}`, style: 'jobSubtitle' },
     { text: `${item.studyType} degree, \n${item.area}, \nGPA: ${item.gpa}`, style: 'listStyle', marginBottom: 8 }
   ])
 ];
