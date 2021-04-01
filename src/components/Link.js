@@ -4,6 +4,7 @@ import { Link as RouterLink } from "gatsby"
 
 export const Link = styled(props => (
   <RouterLink
+    partiallyActive={true}
     getProps={({ isCurrent }) => ({
       className: isCurrent
         ? `${props?.className} active`
