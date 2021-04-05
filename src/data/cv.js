@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { awards } from "./awards";
 import { basics } from "./basics";
 import { languages } from './languages';
 import { education } from './education';
@@ -7,6 +8,7 @@ import { projects } from './projects';
 import { work } from './work';
 
 const d = d => moment(d).format('MMM. YYYY');
+const s = s => s.split('\n').filter(Boolean).map(text => ({ text: `${text.trim()}\n` }));
 
 // DATA
 const DATA = {
@@ -46,7 +48,7 @@ const JOBS = [
   ...work.map(item => [
     { text: `${item.position} @ ${item.company}, ${item.city}`, style: 'jobTitle' },
     { text: `${d(item.startDate)} — ${item.endDate ? d(item.endDate) : 'Present'}`, style: 'jobSubtitle' },
-    { text: item.summary, style: 'summaryStyle' }
+    { text: s(item.summary) }
   ])
 ];
 
@@ -56,7 +58,18 @@ const PROJECTS = [
   ...projects.map(item => [
     { text: item.name, style: 'jobTitle' },
     { text: item.url, style: 'jobSubtitle' },
-    { text: item.summary, style: 'summaryStyle' }
+    { text: s(item.summary) },
+    { text: item.stack.join(', '), style: 'stack' }
+  ])
+];
+
+// ACHIEVMENTS
+const ACHIEVMENTS = [
+  { text: 'Achievments', style: 'header' },
+  ...awards.map(item => [
+    { text: `${item.title} @ ${item.awarder}`, style: 'jobTitle' },
+    { text: d(item.date), style: 'jobSubtitle' },
+    { text: s(item.summary), style: 'summaryStyle' }
   ])
 ];
 
@@ -79,7 +92,7 @@ const SKILLS = [
   { text: 'Skills', style: 'header' },
   {
     style: 'listStyle', 
-    text: DATA.skills.map(skill => ({ text: `${skill}, `}))
+    text: DATA.skills.join(', ')
   }
 ];
 
@@ -112,12 +125,14 @@ const styles = {
   job: {
     fontSize: 16,
     color: '#888',
-    marginBottom: 24,
+    marginBottom: 16,
+    marginTop: 8
   },
   header: {
-    fontSize: 18,
+    fontSize: 16,
     bold: true,
     margin: [0, 8, 0, 8],
+    marginBottom: 16,
     color: '#0af'
   },
   listStyle: {
@@ -125,13 +140,18 @@ const styles = {
     lineHeight: 1.5
   },
   summaryStyle: {
-    fontSize: 14,
+    fontSize: 12,
     alignment: 'justify',
+    lineHeight: 1,
     marginBottom: 16
+  },
+  stack: {
+    marginBottom: 16,
+    bold: true
   },
   jobTitle: {
     bold: true,
-    fontSize: 15,
+    fontSize: 14,
     marginBottom: 4
   },
   jobSubtitle: {
@@ -142,7 +162,7 @@ const styles = {
 };
 
 export const cv = {
-  pageMargins: [45, 40, 20, 40],
+  pageMargins: [40, 30, 20, 30],
   info: {
     title: basics.name,
     author: basics.name,
@@ -162,7 +182,7 @@ export const cv = {
           // SIDEBAR
           width: 210,
           marginLeft: 20,
-          stack: [ ...CONTACTS, ...SKILLS, ...EDUCATION, ...LANGUAGES ]
+          stack: [ ...CONTACTS, ...SKILLS, ...EDUCATION, ...LANGUAGES, ...ACHIEVMENTS ]
         }
       ]
     },
