@@ -1,8 +1,6 @@
 @font-face {
     font-family: 'Monument Extended';
-    src: url('../fonts/MonumentExtended-Black.eot');
-    src: url('../fonts/MonumentExtended-Black.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/MonumentExtended-Black.woff2') format('woff2'),
+    src: url('../fonts/MonumentExtended-Black.woff2') format('woff2'),
         url('../fonts/MonumentExtended-Black.woff') format('woff'),
         url('../fonts/MonumentExtended-Black.ttf') format('truetype');
     font-weight: 900;
@@ -12,9 +10,7 @@
 
 @font-face {
     font-family: 'Monument Extended';
-    src: url('../fonts/MonumentExtended-Light.eot');
-    src: url('../fonts/MonumentExtended-Light.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/MonumentExtended-Light.woff2') format('woff2'),
+    src: url('../fonts/MonumentExtended-Light.woff2') format('woff2'),
         url('../fonts/MonumentExtended-Light.woff') format('woff'),
         url('../fonts/MonumentExtended-Light.ttf') format('truetype');
     font-weight: 300;
@@ -24,9 +20,7 @@
 
 @font-face {
     font-family: 'Monument Extended';
-    src: url('../fonts/MonumentExtended-Regular.eot');
-    src: url('../fonts/MonumentExtended-Regular.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/MonumentExtended-Regular.woff2') format('woff2'),
+    src: url('../fonts/MonumentExtended-Regular.woff2') format('woff2'),
         url('../fonts/MonumentExtended-Regular.woff') format('woff'),
         url('../fonts/MonumentExtended-Regular.ttf') format('truetype');
     font-weight: normal;
