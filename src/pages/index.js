@@ -49,7 +49,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <About>I'm a 22 y.o. software engineer based in Almaty, KZ specializing in frontend development.</About>
+      <About>{basics.summary}</About>
       <Links>
         {links.map(link => (
           <Link to={link.url} key={link.url}>
