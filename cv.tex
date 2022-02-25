@@ -35,19 +35,29 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
+
 %-------------------------
 % Custom commands
+
+% Bold title: regular text
 \newcommand{\resumeItem}[2]{
   \item\small{
     \textbf{#1}{: #2 \vspace{-2pt}}
   }
 }
 
-\newcommand{\resumeSubheading}[4]{
+% Regular text
+\newcommand{\listItem}[1]{
+  \item\small{
+    {#1}
+  }
+}
+
+\newcommand{\resumeSubheading}[5]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
+      {\textit{\small#3}: \textbf{#4}} & \textit{\small #5} \\
     \end{tabular*}\vspace{-5pt}
 }
 
@@ -57,6 +67,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
@@ -67,13 +78,13 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-    \textbf{\href{https://madiyar.dev}{\Huge Madiyar Bolatov}}
+    \textbf{\Huge Madiyar Bolatov}
     & Email: \href{mailto:hi@madiyar.dev}{hi@madiyar.dev} \\
     
     \textbf{\Large Frontend Developer}
     & Telegram: \href{https://t.me/kawaii_neko}{kawaii\_neko} \\
     
-    Almaty, 23 y.o. (1998)
+    Almaty, KZ, 23 y.o. (1998)
     & LinkedIn: \href{https://linkedin.com/madiyarkz}{madiyarkz} \\
 
     \href{https://madiyar.dev}{https://madiyar.dev}
@@ -81,53 +92,46 @@
 \end{tabular*}
 
 
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Satbayev University}{Almaty, KZ}
-      {Bachelor of Computer Science;  GPA: 3.3}{Aug. 2017 -- Jun. 2020}
-  \resumeSubHeadingListEnd
-
-
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Alfa Bank}{Almaty, KZ}
-      {Frontend Developer}{May 2021 - Present}
+      {Alfa Bank Kazakhstan}{Almaty, KZ}
+      {Frontend Developer}{Electronic Document Management System}{May 2021 - Present}
       \resumeItemListStart
-        \resumeItem{Tensorflow.}
-          {TensorFlow is an open source software library for numerical computation using data flow graphs; primarily used for training deep learning models.}
-        \resumeItem{Apache Beam}
-          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines, as well as a set of language-specific SDKs for constructing pipelines and runners.}
+        \resumeItem{Stack}{React, Redux, Webpack, WebSocket}
+        \listItem{Developing EDS feature (signing e-documents with face biometrics).}
+        \listItem{Refactoring legacy code. Migrate deprecated UI library to new one.}
       \resumeItemListEnd
 
     \resumeSubheading
       {DAR.tech}{Almaty, KZ}
-      {Junior Software Engineer}{May 2020 - May 2021}
+      {Junior Software Engineer}{DMS}{May 2020 - May 2021}
       \resumeItemListStart
-        \resumeItem{Notifications}
-          {Service for sending email, push and in-app notifications. Involved in features such as delivery time optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-        \resumeItem{Nostos}
-          {Bulk data processing and injection service from Hadoop to Cassandra and provides a thin REST layer on top for serving offline computed data online.}
+        \resumeItem{Stack}{React, Redux, Redux Saga, Material UI, Jest, RTL}
+        \listItem{Developed researcher tool that analyzes competitors' by social media, websites, apps, etc.}
+        \listItem{Built charts like Rival IQ, Similar Web with \href{https://nivo.rocks}{nivo.rocks}}
+        \listItem{Wrote unit test with Jest \& React Testing Library.}
       \resumeItemListEnd
 
+  \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Satbayev University}{Almaty, KZ}
+      {Bachelor of Computer Science}{GPA: 3.3}{Aug. 2017 -- Jun. 2020}
   \resumeSubHeadingListEnd
 
 
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
-    \resumeSubItem{QuantSoftware Toolkit}
-      {Open source python library for financial data analysis and machine learning for finance.}
-    \resumeSubItem{Github Visualization}
-      {Data Visualization of Git Log data using D3 to analyze project trends over time.}
-    \resumeSubItem{Recommendation System}
-      {Music and Movie recommender systems using collaborative filtering on public datasets.}
-%     \resumeSubItem{Mac Setup}
-%       {Book that gives step by step instructions on setting up developer environment on Mac OS.}
+    \resumeSubItem{Shikimori}
+      {React-client for shikimori.one. WIP}
   \resumeSubHeadingListEnd
 
 %
