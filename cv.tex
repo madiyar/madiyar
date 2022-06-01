@@ -46,6 +46,14 @@
   }
 }
 
+% Project Name
+\newcommand{\projectName}[1]{
+  \vspace{0pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1}\\
+    \end{tabular*}\vspace{0pt}
+}
+
 % Regular text
 \newcommand{\listItem}[1]{
   \item\small{
@@ -53,11 +61,11 @@
   }
 }
 
-\newcommand{\resumeSubheading}[5]{
+\newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
-      {\textit{\small#3}: \textbf{#4}} & \textit{\small #5} \\
+      \textit{\small #3} & \textit{\small #4} \\
     \end{tabular*}\vspace{-5pt}
 }
 
@@ -81,10 +89,10 @@
     \textbf{\Huge Madiyar Bolatov}
     & Email: \href{mailto:hi@madiyar.dev}{hi@madiyar.dev} \\
     
-    \textbf{\Large Front-end Developer}
-    & \textbf{Telegram:} \href{https://t.me/kawaii_neko}{kawaii\_neko} \\
+    \textbf{\Large Frontend Developer}
+    & Telegram: \href{https://t.me/kawaii_neko}{kawaii\_neko} \\
     
-    Almaty, KZ, 23 y.o. (1998)
+    Almaty, KZ, 24 y.o. (1998)
     & LinkedIn: \href{https://linkedin.com/madiyarkz}{madiyarkz} \\
 
     \href{https://madiyar.dev}{https://madiyar.dev}
@@ -98,34 +106,41 @@
 
     \resumeSubheading
       {Alfa Bank Kazakhstan}{Almaty, KZ}
-      {Front-end Developer}{Electronic Document Management System}{May 2021 - Present}
+      {Middle Frontend Developer}{May 2021 - Present}
       \resumeItemListStart
+        \projectName{1. Electronic Document Management (EDM) System}
         \resumeItem{Stack}{React, Redux, Webpack, WebSocket}
-        \listItem{Developing EDS feature (signing e-documents with face biometrics).}
-        \listItem{Refactoring legacy code. Migrate deprecated UI library to new one.}
+        \listItem{Developed EDS feature (signing e-documents with face biometrics).}
+        \listItem{Refactored legacy code. Migrated deprecated UI library to new one. Updated dependencies.}
+        \listItem{Digitized and automated paper-based business processes.}
+        \projectName{2. Alpha Space (Enterprise Portal / Intranet)}
+        \resumeItem{Stack}{React, TypeScript, Redux Toolkit, React Query, Tailwind CSS}
+        \listItem{Developed admin panel for news, banners creation with Editor.js.}
+        \listItem{Developed architecture from zero.}
       \resumeItemListEnd
 
     \resumeSubheading
       {DAR.tech}{Almaty, KZ}
-      {Junior Software Engineer}{DMS}{May 2020 - May 2021}
+      {Junior Software Engineer}{May 2020 - May 2021}
       \resumeItemListStart
-        \resumeItem{Stack}{React, Redux, Redux Saga, Material UI, Jest, RTL}
-        \listItem{Developed researcher tool that analyzes competitors' by social media, websites, apps, etc.}
-        \listItem{Built charts like Rival IQ, Similar Web with \href{https://nivo.rocks}{nivo.rocks}}
+        \projectName{DAR Management System (DMS)}
+        \resumeItem{Stack}{React, Next.js, Redux Saga, Nivo charts, Jest, React Testing Library, Material UI}
+        \listItem{Developed researcher tool that analyzes competitors' by social media, websites, apps, etc. (integration with Rival IQ, SimilarWeb)}
+        \listItem{Developed ad-manager tool (managing Google, Facebook ads)}
         \listItem{Wrote unit test with Jest \& React Testing Library.}
+        \listItem{Redesigned app.}
       \resumeItemListEnd
 
+    \resumeSubheading
+      {DAR.tech}{Almaty, KZ}
+      {FullStack Intern}{January 2020 - May 2020}
+      \resumeItemListStart
+        \projectName{MeetApp}
+        \resumeItem{Stack}{React, Angular, Nest.js, TypeORM, MySQL, Ant.Design}
+        \listItem{Developed app for offline meetings with React, Angular, Nest.js, TypeORM, Redux, Ant.Design}
+      \resumeItemListEnd
+      
   \resumeSubHeadingListEnd
-
-
-%
-%--------SKILLS------------
-\section{Skills}
- \resumeSubHeadingListStart
-  \resumeSubItem{Programming Languages}{JavaScript, TypeScript, HTML, CSS}
-  \resumeSubItem{Technologies}{React, Redux, Redux Saga, Jest, RTL, Material UI, TailwindCSS}
-  \resumeSubItem{Languages}{English (B1), Kazakh (Native), Russian (Fluent)}
- \resumeSubHeadingListEnd
 
 
 %-----------EDUCATION-----------------
@@ -133,16 +148,28 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Satbayev University}{Almaty, KZ}
-      {Bachelor of Computer Science}{GPA: 3.3}{Aug. 2017 -- Jun. 2020}
+      {Bachelor of Computer Science: GPA: 3.3}{Aug. 2017 -- Jun. 2020}
   \resumeSubHeadingListEnd
 
 
-%-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{Shikimori}
-      {React-client for shikimori.one. WIP}
-  \resumeSubHeadingListEnd
+% %-----------PROJECTS-----------------
+% \section{Projects}
+%   \resumeSubHeadingListStart
+%     \resumeSubItem{Shikimori}
+%       {React-client for shikimori.one. WIP}
+%   \resumeSubHeadingListEnd
+
+%
+%--------PROGRAMMING SKILLS------------
+\section{Programming Skills}
+ \resumeSubHeadingListStart
+   \item{
+     \textbf{Languages}{: Javascript, Typescript}
+   }
+   \item{
+     \textbf{Technologies}{: React, Redux (Toolkit, Saga), React Query, Tailwind CSS, Material UI, Jest, Testing Library, Vite.js}
+   }
+ \resumeSubHeadingListEnd
 
 
 %-------------------------------------------
