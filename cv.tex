@@ -46,6 +46,12 @@
   }
 }
 
+\newcommand{\projectName}[1]{
+  \item\small{
+    \textbf{#1}
+  }
+}
+
 % Regular text
 \newcommand{\listItem}[1]{
   \item\small{
@@ -100,12 +106,12 @@
       {Alfa Bank Kazakhstan}{Almaty, KZ}
       {Middle Frontend Developer}{May 2021 - Present}
       \resumeItemListStart
-        \textbf{1. Electronic Document Management (EDM) System}
+        \projectName{1. Electronic Document Management (EDM) System}
         \resumeItem{Stack}{React, Redux, Webpack, WebSocket}
         \listItem{Developed EDS feature (signing e-documents with face biometrics).}
         \listItem{Refactored legacy code. Migrated deprecated UI library to new one. Updated dependencies.}
         \listItem{Digitized and automated paper-based business processes.}
-        \textbf{2. Alpha Space (Enterprise Portal / Intranet)}
+        \projectName{2. Alpha Space (Enterprise Portal / Intranet)}
         \resumeItem{Stack}{React, TypeScript, Redux Toolkit, React Query, Tailwind CSS}
         \listItem{Developed admin panel for news, banners creation with Editor.js.}
         \listItem{Developed architecture from zero.}
@@ -115,7 +121,7 @@
       {DAR.tech}{Almaty, KZ}
       {Junior Software Engineer}{May 2020 - May 2021}
       \resumeItemListStart
-        \textbf{DAR Management System (DMS)}
+        \projectName{DAR Management System (DMS)}
         \resumeItem{Stack}{React, Next.js, Redux Saga, Nivo charts, Jest, React Testing Library, Material UI}
         \listItem{Developed researcher tool that analyzes competitors' by social media, websites, apps, etc. (integration with Rival IQ, SimilarWeb)}
         \listItem{Developed ad-manager tool (managing Google, Facebook ads)}
@@ -127,7 +133,7 @@
       {DAR.tech}{Almaty, KZ}
       {FullStack Intern}{January 2020 - May 2020}
       \resumeItemListStart
-        \textbf{MeetApp}
+        \projectName{MeetApp}
         \resumeItem{Stack}{React, Angular, Nest.js, TypeORM, MySQL, Ant.Design}
         \listItem{Developed app for offline meetings with React, Angular, Nest.js, TypeORM, Redux, Ant.Design}
       \resumeItemListEnd
