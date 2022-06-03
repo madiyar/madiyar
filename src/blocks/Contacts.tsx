@@ -25,7 +25,7 @@ const links = [
 
 const Contacts = () => (
   <section className="bg-zinc-800 min-h-screen flex items-center justify-center flex-col gap-y-6">
-    <a href={`mailto:${email}`} className="text-5xl md:text-6xl font-bold hover:scale-105 transition-all">{email}</a>
+    <a href={`mailto:${email}`} className="text-4xl md:text-6xl font-bold hover:scale-105 transition-all">{email}</a>
     <div className="flex items-center gap-x-4 text-xl">
       {links.map(({ href, text }) => (
         <Link key={text} href={href}>{text}</Link>

@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Card: FunctionalComponent<Props> = ({ title, children, full = false, href }) => (
-  <div className={`flex flex-col bg-zinc-700 border border-zinc-600 p-8 rounded-3xl ${full ? "w-full" : "max-w-lg shrink-0"}`}>
+  <div className={`flex flex-col bg-zinc-700 border border-zinc-600 p-8 rounded-3xl ${full ? "w-full" : "max-w-full md:max-w-lg shrink-0"}`}>
     {href ? (
       <a href={href} target="_blank" rel="noopener noreferrer" className="hover:underline text-xl font-medium mb-2">{title}</a>
     ) : (
