@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .noise {
+    @apply w-full h-screen;
+    filter: contrast(500%) brightness(140%);
+    background: radial-gradient(circle at 81% 16%, rgb(60 86 68), rgb(27 61 37 / 40%)), url(/src/assets/noise.svg);
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    @apply bg-zinc-900 text-white tracking-widest;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-1 h-1;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent rounded-full;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-none bg-zinc-600;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-500;
+  }
+}
