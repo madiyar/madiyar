@@ -1,0 +1,165 @@
+{
+  "resume": {
+    "basics": {
+      "name": "Madiyar Bolatov",
+      "label": "Frontend Developer",
+      "email": "hi@madiyar.dev",
+      "url": "https://madiyar.dev",
+      "birthday": "1998-05-24",
+      "location": {
+        "city": "Almaty",
+        "country": "KZ"
+      },
+      "profiles": [
+        {
+          "network": "Telegram",
+          "username": "kawaii_neko",
+          "url": "https://t.me/kawaii_neko"
+        },
+        {
+          "network": "LinkedIn",
+          "username": "madiyarkz",
+          "url": "https://linkedin.com/in/madiyarkz"
+        },
+        {
+          "network": "GitHub",
+          "username": "madiyar",
+          "url": "https://github.com/madiyar"
+        }
+      ]
+    },
+    "work": [
+      {
+        "name": "Alfa Bank Kazakhstan",
+        "url": "https://alfabank.kz",
+        "position": "Middle Frontend Developer",
+        "city": "Almaty",
+        "country": "KZ",
+        "startDate": "2021-05-20",
+        "endDate": "2022-06-30",
+        "projects": [
+          {
+            "name": "1. Electronic Document Management (EDM) System",
+            "stack": "React, Redux, Webpack, WebSocket",
+            "highlights": [
+              "Developed EDS feature (signing e-documents with face biometrics).",
+              "Refactored legacy code. Migrated deprecated UI library to new one. Updated dependencies.",
+              "Digitized and automated paper-based business processes."
+            ]
+          },
+          {
+            "name": "2. Alpha Space (Enterprise Portal / Intranet)",
+            "stack": "React, TypeScript, Redux Toolkit, React Query, Tailwind CSS",
+            "highlights": [
+              "Developed admin panel for news, banners creation with Editor.js.",
+              "Developed architecture from zero."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DAR.tech",
+        "url": "https://dar.io",
+        "position": "Junior Software Engineer",
+        "city": "Almaty",
+        "country": "KZ",
+        "startDate": "2020-05-11",
+        "endDate": "2021-05-19",
+        "projects": [
+          {
+            "name": "DAR Management System (DMS)",
+            "stack": "React, Next.js, Redux Saga, Nivo charts, Jest, React Testing Library, Material UI",
+            "highlights": [
+              "Developed researcher tool that analyzes competitors' by social media, websites, apps, etc. (integration with Rival IQ, SimilarWeb)",
+              "Developed ad-manager tool (managing Google, Facebook ads)",
+              "Wrote unit test with Jest and React Testing Library.",
+              "Redesigned app."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DAR.tech",
+        "url": "https://dar.io",
+        "position": "FullStack Intern",
+        "city": "Almaty",
+        "country": "KZ",
+        "startDate": "2020-01-20",
+        "endDate": "2020-05-10",
+        "projects": [
+          {
+            "name": "MeetApp",
+            "stack": "React, Angular, Nest.js, TypeORM, MySQL, Ant.Design",
+            "highlights": [
+              "Developed app for offline meetings with React, Angular, Nest.js, TypeORM, Redux, Ant.Design"
+            ]
+          }
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Satbayev University",
+        "url": "https://satbayev.university/",
+        "area": "Computer Science",
+        "studyType": "Bachelor",
+        "startDate": "2017-08-21",
+        "endDate": "2020-06-02",
+        "score": "3.3",
+        "city": "Almaty",
+        "country": "KZ"
+      }
+    ],
+    "awards": [
+      {
+        "title": "Hackathon 2 place",
+        "date": "2019-11-17",
+        "awarder": "Satbayev University",
+        "summary": "Project: Co-painting with friends on canvas (Socket.IO, Express, p5.JS)"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Languages",
+        "keywords": ["HTML/CSS", "JavaScript", "TypeScript"],
+        "level": ""
+      },
+      {
+        "name": "Technologies",
+        "keywords": [
+          "React",
+          "Redux (Toolkit, Saga)",
+          "React Query",
+          "Tailwind CSS",
+          "Material UI",
+          "Jest",
+          "Testing Library",
+          "Vite.js"
+        ],
+        "level": ""
+      }
+    ],
+    "languages": [
+      {
+        "language": "Kazakh",
+        "fluency": "Native"
+      },
+      {
+        "language": "Russian",
+        "fluency": "Advanced"
+      },
+      {
+        "language": "English",
+        "fluency": "B1"
+      }
+    ],
+    "projects": [
+      {
+        "name": "Cartoon Beta",
+        "url": "https://github.com/madiyar/cartoon-beta",
+        "summary": "IMDB clone for cartoons, anime, etc. Uses TheMovieDB API (20k+ cartoons) and VK API (for news).",
+        "keywords": ["PHP 5", "Bootstrap", "MySQL", "TMDB API", "VK API"]
+      }
+    ]
+  }
+}
