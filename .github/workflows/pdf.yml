@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Set up Git repository 🦑
         uses: actions/checkout@v2
-      - name: JSON => LaTeX
+      # - name: JSON => LaTeX
         using: 'node12'
         main: 'index.js'
         working_directory: cv
