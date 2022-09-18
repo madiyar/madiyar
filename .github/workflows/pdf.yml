@@ -9,9 +9,9 @@ jobs:
       - name: Set up Git repository 🦑
         uses: actions/checkout@v2
       # - name: JSON => LaTeX
-        using: 'node12'
-        main: 'index.js'
-        working_directory: cv
+        # using: 'node12'
+        # main: 'index.js'
+        # working_directory: cv
       - name: LaTeX => PDF 📋
         uses: xu-cheng/latex-action@v2
         with:

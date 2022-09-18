@@ -113,7 +113,7 @@ const getWork = () => {
   `;
 };
 
-fs.readFile("head.txt", "utf8", function (err, data) {
+fs.readFile("cv/head.txt", "utf8", function (err, data) {
   if (err) throw err;
 
   const output = `
