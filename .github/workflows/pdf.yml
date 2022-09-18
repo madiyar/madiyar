@@ -1,9 +1,6 @@
 name: LaTeX to PDF
 
-on:
-  push:
-    paths:
-      - "**.json"
+on: push
 
 jobs:
   build_latex:
