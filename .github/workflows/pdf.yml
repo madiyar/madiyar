@@ -3,7 +3,7 @@ name: LaTeX to PDF
 on:
   push:
     paths:
-      - "**.tex"
+      - "**.json"
 
 jobs:
   build_latex:
