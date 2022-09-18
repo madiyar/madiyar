@@ -3,7 +3,7 @@ const dayjs = require("dayjs");
 var fs = require("fs");
 
 const { basics, education, skills, work } = resume;
-const date = (date) => dayjs(date).format("MMM. YYYY");
+const date = (date) => date ? dayjs(date).format("MMM. YYYY") : "";
 
 const getBasics = () => {
   const age = dayjs().diff(basics.birthday, "year");
