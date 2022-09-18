@@ -126,7 +126,7 @@ fs.readFile("cv/head.txt", "utf8", function (err, data) {
     \\end{document}
   `
 
-  fs.writeFile("cv.tex", output, (err) => {
+  fs.writeFile("cv/cv.tex", output, (err) => {
     if (err) console.log(err);
   });
 });
