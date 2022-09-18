@@ -30,6 +30,22 @@
     },
     "work": [
       {
+        "name": "JMart",
+        "url": "https://jmart.kz",
+        "position": "Middle Frontend Developer",
+        "city": "Almaty",
+        "country": "KZ",
+        "startDate": "2022-08-01",
+        "endDate": "",
+        "projects": [
+          {
+            "name": "jmart.kz",
+            "stack": "React, Vue, TypeScript, Node, Express, Redux (Toolkit, Saga, Reselect)",
+            "highlights": [""]
+          }
+        ]
+      },
+      {
         "name": "Alfa Bank Kazakhstan",
         "url": "https://alfabank.kz",
         "position": "Middle Frontend Developer",
