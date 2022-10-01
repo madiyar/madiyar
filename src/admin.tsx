@@ -21,11 +21,11 @@ const AddButton = () => (
   <button className="bg-blue-500 px-6 py-3 rounded-full text-2xl font-medium self-start">+</button>
 )
 
-const Admin = () => {
+const Admin: FunctionalComponent = () => {
   const data = useData();
 
   if (!data) {
-    return "Loading..."
+    return <>"Loading..."</>
   }
 
   return (
