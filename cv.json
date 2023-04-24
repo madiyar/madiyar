@@ -39,9 +39,15 @@
         "endDate": "",
         "projects": [
           {
-            "name": "jmart.kz",
-            "stack": "React, Vue, TypeScript, Node, Express, Redux (Toolkit, Saga, Reselect)",
-            "highlights": ["E-commerce"]
+            "name": "JMart (jmart.kz)",
+            "stack": "React, TypeScript, Redux (Toolkit, Saga, Reselect), Node, Express",
+            "highlights": [
+              "Contributed to UI library (pyatka-ui)",
+              "Developed and maintained REST API wrapper (pyatka-sdk)",
+              "Search engine optimization (SEO) and improve Lighthouse performance",
+              "Maintained and developed own SSR on express",
+              "Added code-spliting and reduced size of JS bundle"
+            ]
           }
         ]
       },
