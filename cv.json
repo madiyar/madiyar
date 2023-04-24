@@ -40,7 +40,7 @@
         "projects": [
           {
             "name": "JMart (jmart.kz)",
-            "stack": "React, TypeScript, Redux (Toolkit, Saga, Reselect), Node, Express",
+            "stack": "React, TypeScript, Redux (Toolkit, Saga, Reselect), Styled-Components, Webpack, Microbundle, Node (Express)",
             "highlights": [
               "Contributed to UI library (pyatka-ui)",
               "Developed and maintained REST API wrapper (pyatka-sdk)",
