@@ -1,7 +1,7 @@
 export const skills = [
   {
     name: "Web Development",
-    keywords: ["HTML/CSS", "JavaScript", "React", "Redux", "Redux Saga", "Vue.js", "Nest.js"],
+    keywords: ["HTML/CSS", "TypeScript", "JavaScript", "React", "Redux", "Redux Saga"],
     level: ""
   },
   {

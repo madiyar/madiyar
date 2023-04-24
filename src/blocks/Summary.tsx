@@ -20,7 +20,8 @@ const Card: FunctionalComponent<Props> = ({ title, children, full = false, href 
 const Summary = () => (
   <section className="min-h-screen p-12 md:p-16 flex flex-col justify-center">
     <div className="grid gap-8 mb-16 grid-cols-1 md:grid-cols-2">
-      <Card title="Experience: 2+ year" full>
+      <Card title="Experience: 3+ year" full>
+        <p>— JMart, 2022-2023</p>
         <p>— Alfa Bank, 2021-2022</p>
         <p>— DAR, 2020-2021</p>
       </Card>
