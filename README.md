@@ -2,7 +2,7 @@
 
 # Madiyar Bolatov
 
-I'm a `24` y.o. software engineer based in ⛰️ `Almaty, KZ` specializing in frontend development.
+I'm a `25` y.o. software engineer based in ⛰️ `Almaty, KZ` specializing in frontend development.
 
 [Portfolio](https://madiyar.dev)
 
