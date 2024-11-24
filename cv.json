@@ -30,23 +30,28 @@
     },
     "work": [
       {
-        "name": "JMart",
+        "name": "Jmart",
         "url": "https://jmart.kz",
-        "position": "Middle Frontend Developer",
+        "position": "Frontend Developer",
         "city": "Almaty",
         "country": "KZ",
         "startDate": "2022-08-01",
         "endDate": "",
         "projects": [
           {
-            "name": "JMart (jmart.kz)",
-            "stack": "React, TypeScript, Redux (Toolkit, Saga, Reselect), Styled-Components, Webpack, Microbundle, Node (Express)",
+            "name": "Jmart (jmart.kz)",
+            "stack": "React, Next.js TypeScript, Redux (Toolkit, Saga, Reselect), Zustand, ChakraUI, Styled-Components, Webpack, Microbundle, Node (Express), Turborepo",
             "highlights": [
-              "Contributed to UI library (pyatka-ui)",
-              "Developed and maintained REST API wrapper (pyatka-sdk)",
-              "Improved Lighthouse performance and search engine optimization (SEO)",
-              "Maintained and developed own SSR on express",
-              "Added code-spliting and reduced size of JS bundle"
+              "Maintained and developed an own custom SSR solution on Express and Node.js.",
+              "Contributed to the development of a UI library (pyatka-ui).",
+              "Developed and maintained a wrapper for our REST API services (pyatka-sdk).",
+              "Improved a website performance (Lighthouse, CSR, LCP).",
+              "Search engine optimization (SEO): microdata, meta-tags, open-graph.",
+              "Added code-splitting to reduce bundle size and improve load time.",
+              "Added virtualization to the product list with infinite scrolling to ensure smooth page performance.",
+              "Participated in migrating the project from legacy (Webpack, React 17) to Next.js 14 and Turborepo.",
+              "Assisted with setting up the Dockerfile and build configuration.",
+              "Participated in architectural decision-making and technology selection."
             ]
           }
         ]
@@ -54,7 +59,7 @@
       {
         "name": "Alfa Bank Kazakhstan",
         "url": "https://alfabank.kz",
-        "position": "Middle Frontend Developer",
+        "position": "Frontend Developer",
         "city": "Almaty",
         "country": "KZ",
         "startDate": "2021-05-20",
@@ -64,17 +69,17 @@
             "name": "1. Electronic Document Management (EDM) System",
             "stack": "React, Redux, Webpack, WebSocket",
             "highlights": [
-              "Developed EDS feature (signing e-documents with face biometrics).",
-              "Refactored legacy code. Migrated deprecated UI library to new one. Updated dependencies.",
-              "Digitized and automated paper-based business processes."
+              "Developed electronic document signing (EDS) using biometrics via facial recognition through a webcam.",
+              "Refactored legacy code, updated dependencies, and migrated the project from an old deprecated UI library to a new one.",
+              "Developed automation and digitalization solutions for the bank's internal document workflow and business processes previously handled on paper."
             ]
           },
           {
             "name": "2. Alpha Space (Enterprise Portal / Intranet)",
             "stack": "React, TypeScript, Redux Toolkit, React Query, Tailwind CSS",
             "highlights": [
-              "Developed admin panel for news, banners creation with Editor.js.",
-              "Developed architecture from zero."
+              "Developed an admin panel for managing news and banners with Editor.js.",
+              "Started project development from scratch."
             ]
           }
         ]
@@ -82,7 +87,7 @@
       {
         "name": "DAR.tech",
         "url": "https://dar.io",
-        "position": "Junior Software Engineer",
+        "position": "Software Engineer",
         "city": "Almaty",
         "country": "KZ",
         "startDate": "2020-05-11",
@@ -92,10 +97,11 @@
             "name": "DAR Management System (DMS)",
             "stack": "React, Next.js, Redux Saga, Nivo charts, Jest, React Testing Library, Material UI",
             "highlights": [
-              "Developed researcher tool that analyzes competitors' by social media, websites, apps, etc. (integration with Rival IQ, SimilarWeb)",
-              "Developed ad-manager tool (managing Google, Facebook ads)",
-              "Wrote unit test with Jest and React Testing Library.",
-              "Redesigned app."
+              "Developed a tool (Researcher), to analyze and compare competitors' social media, websites, and apps (with Rival IQ and SimilarWeb integration).",
+              "Developed a tool (Ad-manager), to manage all company ads (Google Adsense, Facebook Ads) from one platform.",
+              "Participated in the development of the OAuth system (SaaS) like Auth0",
+              "Wrote unit tests using Jest and React Testing Library.",
+              "Worked on the app redesign."
             ]
           }
         ]
@@ -103,7 +109,7 @@
       {
         "name": "DAR.tech",
         "url": "https://dar.io",
-        "position": "FullStack Intern",
+        "position": "FullStack Developer",
         "city": "Almaty",
         "country": "KZ",
         "startDate": "2020-01-20",
@@ -134,10 +140,10 @@
     ],
     "awards": [
       {
-        "title": "Hackathon 2 place",
+        "title": "Hackathon, 2nd place",
         "date": "2019-11-17",
         "awarder": "Satbayev University",
-        "summary": "Project: Co-painting with friends on canvas (Socket.IO, Express, p5.JS)"
+        "summary": "Project: Real-time collaborative drawing on a canvas (Socket.IO, Express, p5.JS)"
       }
     ],
     "skills": [
@@ -150,12 +156,12 @@
         "name": "Technologies",
         "keywords": [
           "React",
+          "Next.js",
           "Redux (Toolkit, Saga)",
-          "React Query",
-          "Tailwind CSS",
-          "Material UI",
-          "Jest",
-          "Testing Library",
+          "Tanstack Query, RTK Query",
+          "Tailwind CSS, styled-components, emotion",
+          "Material UI, Chakra UI, Ant design",
+          "Jest, Testing Library",
           "Vite.js"
         ],
         "level": ""
@@ -172,7 +178,7 @@
       },
       {
         "language": "English",
-        "fluency": "B1"
+        "fluency": "B2"
       }
     ],
     "projects": [
