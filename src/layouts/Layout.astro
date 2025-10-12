@@ -1,0 +1,56 @@
+---
+import "@/shared/global.css";
+import resume from "cv/resume.json";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noimageindex" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+
+    <title>{resume.basics.name}</title>
+    <meta name="description" content="Software engineer based in Almaty, KZ specializing in frontend development." />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://madiyar.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Madiyar Bolatov" />
+    <meta
+      property="og:description"
+      content="Software engineer based in Almaty, KZ specializing in frontend development."
+    />
+    <meta property="og:image" content="/og.png" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="madiyar.dev" />
+    <meta property="twitter:url" content="https://madiyar.dev" />
+    <meta name="twitter:title" content="Madiyar Bolatov" />
+    <meta
+      name="twitter:description"
+      content="Software engineer based in Almaty, KZ specializing in frontend development."
+    />
+    <meta name="twitter:image" content="/og.png" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<script is:inline>
+  console.clear();
+  console.log(
+    "%c🇰🇿🇺🇦🇵🇸",
+    "font-size: 48px;",
+  );
+  console.log("%cResum (CV) → https://madiyar.dev/cv.pdf", "font-weight: semibold; font-size: 16px");
+  console.log("%cTelegram → https://t.me/kawaii_neko", "font-weight: semibold; font-size: 16px");
+  console.log("%cLinkedIn → https://linkedin.com/in/madiyarkz", "font-weight: semibold; font-size: 16px");
+  console.log("%cGitHub → https://github.com/madiyar", "font-weight: semibold; font-size: 16px");
+  console.log("%cE-mail → hi@madiyar.dev", "font-weight: semibold; font-size: 16px");
+</script>

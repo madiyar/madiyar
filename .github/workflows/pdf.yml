@@ -15,10 +15,10 @@ jobs:
       - name: LaTeX => PDF 📋
         uses: xu-cheng/latex-action@v2
         with:
-          working_directory: cv
-          root_file: cv.tex
+          working_directory: resume
+          root_file: resume.tex
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
-          folder: cv
+          folder: resume

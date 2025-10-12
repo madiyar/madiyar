@@ -1,0 +1,26 @@
+---
+const email = "hi@madiyar.dev";
+---
+
+<button
+  class="cursor-pointer ml-3 opacity-0 group-hover:opacity-100 transition-all bg-neutral-800 border border-neutral-600 text-white text-sm px-3 py-1 rounded-lg hover:bg-neutral-700"
+  data-email={email}
+>
+  Copy
+</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector('[data-email]');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const email = btn.getAttribute('data-email');
+      navigator.clipboard.writeText(email!);
+
+      const oldText = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => (btn.textContent = oldText), 2000);
+    });
+  });
+</script>

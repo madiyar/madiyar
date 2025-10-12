@@ -1,0 +1,130 @@
+---
+import { Picture } from 'astro:assets';
+
+import Layout from '@/layouts/Layout.astro';
+import Time from '@/components/Time.astro';
+import CopyEmail from '@/components/CopyEmail.astro';
+// import Map from '../components/Map.astro';
+
+import me from "@/assets/me.webp";
+import pdf from "@/assets/pdf.png";
+
+import resume from "cv/resume.json";
+
+const links = resume.basics.profiles;
+
+---
+
+<Layout>
+  <main class="px-6 max-w-2xl mx-auto text-shadow-lg text-shadow-amber-500/10">
+    <nav class="flex justify-between items-center py-1.5 sticky top-0 bg-zinc-950/50 backdrop-blur-sm z-10">
+      <a href="https://madiyar.dev" class="text-md font-semibold">madiyar</a>
+      <Time />
+    </nav>
+    
+    <header class="text-center py-10">
+      <h1 class="text-6xl md:text-7xl font-semibold">madiyar</h1>
+      <h2>Frontend Developer</h2>
+    </header>
+  
+    <section class="flex flex-col items-start">
+      <div class="imessage">
+        Hey! 👋
+      </div>
+      <div class="imessage">
+        I’m Madiyar Bolatov, frontend developer based in Almaty, Kazakhstan 🇰🇿
+      </div>
+      <div class="imessage">
+        I enjoy turning complex stuff into clean interfaces. Been doing this for 5+ years now.
+      </div>
+      <div class="imessage last">
+        Right now I'm working on <a href="https://jmart.kz" rel="noopener noreferrer" target="_blank" class="hover:underline">Jmart.kz</a>, an e-commerce platform.
+      </div>
+
+      <Picture
+        src={me}
+        alt="me"
+        width={190}
+        loading="eager"
+        draggable={false}
+        pictureAttributes={{ class: "w-40 md:w-44 block no-drag" }}
+      />
+
+      <div class="imessage last">
+        If you’re curious about my work, you can grab my CV or just text me on Telegram 😊
+      </div>
+
+      <a
+        href="/cv.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-col items-center cursor-pointer group gap-1 my-4"
+      >
+        <div class="transition-all p-0.5 rounded border-2 border-transparent group-hover:bg-white/15 group-hover:border-white/40 group-active:bg-white/15 group-active:border-white/40">
+          <Picture
+            src={pdf}
+            alt="PDF icon"
+            width={128}
+            height={128}
+            draggable={false}
+            pictureAttributes={{ class: "w-20 block no-drag" }}
+          />
+        </div>
+        <p class="transition-all font-medium rounded px-1 group-hover:bg-pdf group-active:bg-pdf">cv.pdf</p>
+      </a>
+    </section>
+
+    <!-- <Map /> -->
+
+    <section class="flex flex-col gap-4 mt-12 mb-20">
+      <div class="inline-flex items-center group">
+        <h3 class="text-4xl md:text-5xl font-semibold select-all">
+          hi@madiyar.dev
+        </h3>
+        <CopyEmail />
+      </div>
+
+      <div class="flex flex-wrap gap-2 text-lg">
+        {links.map(link => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 card-link"
+          >
+            {link.network.toLocaleLowerCase()}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-20">
+      <div class="imessage last inline-flex items-center gap-1.5">
+        <span class="text-amber-400 animate-pulse text-xs">✦</span> Here are some projects I worked on
+      </div>
+
+      <div class="flex gap-3 my-5 columns-2">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.npmjs.com/package/smartbanner-tsx"
+          class="w-full md:max-w-1/2 flex flex-col gap-1 py-5 px-4 rounded-2xl card-link"
+        >
+          <h3 class="text-lg font-semibold">smartbanner-tsx</h3>
+          <p class="text-sm text-zinc-400 text-shadow-none">Smart App Banner for React</p>
+          <p class="text-sm text-zinc-500 text-shadow-none">React 18 • TypeScript</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+
+<!-- https://fonts.google.com/specimen/Instrument+Serif -->
+<!-- https://deeo.studio/ -->
+ <!-- https://www.dtampe.com/ -->
+	<!-- https://www.airborne.studio/ -->
+<!-- https://www.vishnu.design/ -->
+ <!-- https://hellodani.co/ -->

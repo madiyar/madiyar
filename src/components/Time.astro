@@ -1,0 +1,24 @@
+---
+---
+
+<div id="time" class="flex items-baseline gap-1">
+  <span id="time-value"></span>
+  <span class="text-zinc-400 text-xs">GMT+5</span>
+</div>
+
+<script>
+  const el = document.getElementById('time-value');
+
+  function updateTime() {
+    const now = new Date().toLocaleTimeString('en-US', {
+      timeZone: 'Asia/Almaty',
+      hour: 'numeric',
+      minute: '2-digit',
+      // timeZoneName: 'short'
+    });
+    el!.textContent = now;
+  }
+
+  updateTime();
+  setInterval(updateTime, 10_000);
+</script>
