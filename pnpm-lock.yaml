@@ -11,6 +11,9 @@ dependencies:
   astro:
     specifier: ^5.14.1
     version: 5.14.1(typescript@5.8.3)
+  sharp:
+    specifier: ^0.34.4
+    version: 0.34.4
   tailwindcss:
     specifier: ^4.1.10
     version: 4.1.11
@@ -366,7 +369,6 @@ packages:
     engines: {node: '>=18'}
     requiresBuild: true
     dev: false
-    optional: true
 
   /@img/sharp-darwin-arm64@0.34.4:
     resolution: {integrity: sha512-sitdlPzDVyvmINUdJle3TNHl+AG9QcwiAMsXmccqsCOMZNIdW2/7S26w0LyU8euiLVzFBL3dXPwVCq/ODnf2vA==}
@@ -1391,7 +1393,6 @@ packages:
     engines: {node: '>=8'}
     requiresBuild: true
     dev: false
-    optional: true
 
   /deterministic-object-hash@2.0.2:
     resolution: {integrity: sha512-KxektNH63SrbfUyDiwXqRb1rLwKt33AmMv+5Nhsw1kqZ13SJBRTgZHtGbE+hH3a1mVW1cz+4pqSWVPAtLVXTzQ==}
@@ -2704,7 +2705,6 @@ packages:
       '@img/sharp-win32-ia32': 0.34.4
       '@img/sharp-win32-x64': 0.34.4
     dev: false
-    optional: true
 
   /shiki@3.13.0:
     resolution: {integrity: sha512-aZW4l8Og16CokuCLf8CF8kq+KK2yOygapU5m3+hoGw0Mdosc6fPitjM+ujYarppj5ZIKGyPDPP1vqmQhr+5/0g==}
