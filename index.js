@@ -1,13 +1,15 @@
-const { resume } = require("./cv.json");
-const dayjs = require("dayjs");
-var fs = require("fs");
+import resume from "./resume.json" with { type: 'json' };
+import dayjs from "dayjs";
+import fs from "fs";
+
+// const { resume } = require("./resume.json");
+// var fs = require("fs");
 
 const { basics, education, skills, work } = resume;
 const date = (date) => date ? dayjs(date).format("MMM. YYYY") : "";
 
 const getBasics = () => {
-  const age = dayjs().diff(basics.birthday, "year");
-  const summary = `${basics.location.city}, ${basics.location.country}, ${age} y.o. (${dayjs(basics.birthday).year()})`;
+  const summary = `${basics.location.city}, ${basics.location.countryCode}, GTM+5`;
 
   // left column
   const left = [
@@ -58,9 +60,9 @@ const getEducation = () => {
       \\resumeSubHeadingListStart
         ${education
           .map(
-            ({ institution, city, country, studyType, area, score, startDate, endDate }) => `
+            ({ institution, location, studyType, area, score, startDate, endDate }) => `
           \\resumeSubheading
-            {${institution}}{${city}, ${country}}
+            {${institution}}{${location.city}, ${location.countryCode}}
             {${studyType} of ${area}: GPA: ${score}}{${date(startDate)} -- ${date(endDate)}}
         `
           )
@@ -99,9 +101,9 @@ const getWork = () => {
     \\resumeSubHeadingListStart
       ${work
         .map(
-          ({ name, city, country, position, startDate, endDate, projects }) => `
+          ({ name, location, position, startDate, endDate, projects }) => `
         \\resumeSubheading
-          {${name}}{${city}, ${country}}
+          {${name}}{${location.city}, ${location.countryCode}}
           {${position}}{${date(startDate)} - ${date(endDate) || "Present"}}
           \\resumeItemListStart
             ${projects.map(getProject).join("")}
@@ -113,7 +115,7 @@ const getWork = () => {
   `;
 };
 
-fs.readFile("cv/head.txt", "utf8", function (err, data) {
+fs.readFile("resume/head.txt", "utf8", function (err, data) {
   if (err) throw err;
 
   const output = `
@@ -126,7 +128,7 @@ fs.readFile("cv/head.txt", "utf8", function (err, data) {
     \\end{document}
   `
 
-  fs.writeFile("cv/cv.tex", output, (err) => {
+  fs.writeFile("resume/resume.tex", output, (err) => {
     if (err) console.log(err);
   });
 });

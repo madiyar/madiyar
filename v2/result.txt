@@ -1,0 +1,6 @@
+Hello, Madiyar Bolatov
+
+Projects:
+
+- smartbanner-tsx: A customizable React component for promoting iOS and Android apps on mobile websites. (https://github.com/madiyar/smartbanner-tsx)
+

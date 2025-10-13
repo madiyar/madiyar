@@ -1,0 +1,166 @@
+{
+  "basics": {
+    "name": "Madiyar Bolatov",
+    "label": "Frontend Developer",
+    "email": "hi@madiyar.dev",
+    "url": "https://madiyar.dev",
+    "summary": "Software engineer based in Almaty, KZ specializing in frontend development.",
+    "location": {
+      "city": "Almaty",
+      "countryCode": "KZ"
+    },
+    "profiles": [
+      {
+        "network": "Telegram",
+        "username": "kawaii_neko",
+        "url": "https://t.me/kawaii_neko"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "madiyarkz",
+        "url": "https://linkedin.com/in/madiyarkz"
+      },
+      {
+        "network": "GitHub",
+        "username": "madiyar",
+        "url": "https://github.com/madiyar"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Jmart",
+      "url": "https://jmart.kz",
+      "position": "Frontend Developer",
+      "location": {
+        "city": "Almaty",
+        "countryCode": "KZ"
+      },
+      "startDate": "2022-08-01",
+      "endDate": "",
+      "projects": [
+        {
+          "name": "Jmart (jmart.kz)",
+          "stack": "React, Next.js TypeScript, Redux (Toolkit, Saga, Reselect), Zustand, ChakraUI, Styled-Components, Webpack, Microbundle, Node (Express), Turborepo",
+          "highlights": [
+            "Maintained and developed an own custom SSR solution on Express and Node.js.",
+            "Contributed to the development of a UI library (pyatka-ui).",
+            "Developed and maintained a wrapper for our REST API services (pyatka-sdk).",
+            "Improved a website performance (Lighthouse, CSR, LCP). Search engine optimization (SEO): microdata, meta-tags, open-graph.",
+            "Added code-splitting to reduce bundle size and improve load time. Added virtualization to the product list with infinite scrolling to ensure smooth page performance.",
+            "Participated in migrating the project from legacy (Webpack, React 17) to Next.js 14 and Turborepo.",
+            "Assisted with setting up the Dockerfile and build configuration.",
+            "Participated in architectural decision-making and technology selection."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Alfa Bank Kazakhstan",
+      "url": "https://alfabank.kz",
+      "position": "Frontend Developer",
+      "location": {
+        "city": "Almaty",
+        "countryCode": "KZ"
+      },
+      "startDate": "2021-05-20",
+      "endDate": "2022-06-30",
+      "projects": [
+        {
+          "name": "1. Electronic Document Management (EDM) System",
+          "stack": "React, Redux, Webpack, WebSocket",
+          "highlights": [
+            "Developed electronic document signing (EDS) using biometrics via facial recognition through a webcam.",
+            "Refactored legacy code, updated dependencies, and migrated the project from an old deprecated UI library to a new one.",
+            "Developed automation and digitalization solutions for the bank's internal document workflow and business processes previously handled on paper."
+          ]
+        },
+        {
+          "name": "2. Alpha Space (Enterprise Portal / Intranet)",
+          "stack": "React, TypeScript, Redux Toolkit, React Query, Tailwind CSS",
+          "highlights": [
+            "Developed an admin panel for managing news and banners with Editor.js.",
+            "Started project development from scratch."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DAR.tech",
+      "url": "https://dar.io",
+      "position": "Software Engineer",
+      "location": {
+        "city": "Almaty",
+        "countryCode": "KZ"
+      },
+      "startDate": "2020-01-20",
+      "endDate": "2021-05-19",
+      "projects": [
+        {
+          "name": "DAR Management System (DMS)",
+          "stack": "React, Next.js, Redux Saga, Nivo charts, Jest, React Testing Library, Material UI",
+          "highlights": [
+            "Developed a tool (Researcher), to analyze and compare competitors' social media, websites, and apps (with Rival IQ and SimilarWeb integration).",
+            "Developed a tool (Ad-manager), to manage all company ads (Google Adsense, Facebook Ads) from one platform.",
+            "Wrote unit tests using Jest and React Testing Library."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Satbayev University",
+      "url": "https://satbayev.university/",
+      "area": "Computer Science",
+      "studyType": "Bachelor",
+      "startDate": "2017-08-21",
+      "endDate": "2020-06-02",
+      "score": "3.3",
+      "location": {
+        "city": "Almaty",
+        "countryCode": "KZ"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": ["HTML/CSS", "JavaScript", "TypeScript"]
+    },
+    {
+      "name": "Technologies",
+      "keywords": [
+        "React",
+        "Next.js",
+        "Redux (Toolkit, Saga)",
+        "Tanstack Query, RTK Query",
+        "Tailwind CSS, styled-components, emotion",
+        "Material UI, Chakra UI, Ant design",
+        "Jest, Testing Library",
+        "Vite"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Kazakh",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Russian",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "English",
+      "fluency": "Upper-intermediate (B2)"
+    }
+  ],
+  "projects": [
+    {
+      "name": "smartbanner-tsx",
+      "description": "A customizable React component for promoting iOS and Android apps on mobile websites.",
+      "url": "https://github.com/madiyar/smartbanner-tsx"
+    }
+  ]
+}
