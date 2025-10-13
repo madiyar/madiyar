@@ -11,6 +11,9 @@ dependencies:
   astro:
     specifier: ^5.14.1
     version: 5.14.1(typescript@5.8.3)
+  dayjs:
+    specifier: ^1.11.18
+    version: 1.11.18
   sharp:
     specifier: ^0.34.4
     version: 0.34.4
@@ -1350,6 +1353,10 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+    dev: false
+
+  /dayjs@1.11.18:
+    resolution: {integrity: sha512-zFBQ7WFRvVRhKcWoUh+ZA1g2HVgUbsZm9sbddh8EC5iv93sui8DVVz1Npvz+r6meo9VKfa8NyLWBsQK1VvIKPA==}
     dev: false
 
   /debug@4.4.1:
