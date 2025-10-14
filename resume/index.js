@@ -9,7 +9,7 @@ const { basics, education, skills, work } = resume;
 const date = (date) => date ? dayjs(date).format("MMM. YYYY") : "";
 
 const getBasics = () => {
-  const summary = `${basics.location.city}, ${basics.location.countryCode}, GTM+5`;
+  const summary = `${basics.location.city}, ${basics.location.countryCode}, GMT+5`;
 
   // left column
   const left = [
