@@ -29,6 +29,26 @@
   },
   "work": [
     {
+      "name": "Bank CenterCredit",
+      "url": "https://bcc.kz",
+      "position": "Frontend Developer",
+      "location": {
+        "city": "Almaty",
+        "countryCode": "KZ"
+      },
+      "startDate": "2026-01-14",
+      "endDate": "",
+      "projects": [
+        {
+          "name": "AI Studio",
+          "stack": "React, TypeScript, Zustand, React-Query, Turborepo, TailwindCSS",
+          "highlights": [
+            "Working on AI Studio — an LLM-based platform for chat, agents, and workflows."
+          ]
+        }
+      ]
+    },
+    {
       "name": "Jmart",
       "url": "https://jmart.kz",
       "position": "Frontend Developer",
@@ -45,7 +65,6 @@
           "highlights": [
             "Maintained and developed an own custom SSR solution on Express and Node.js.",
             "Contributed to the development of a UI library (pyatka-ui).",
-            "Developed and maintained a wrapper for our REST API services (pyatka-sdk).",
             "Improved a website performance (Lighthouse, CSR, LCP). Search engine optimization (SEO): microdata, meta-tags, open-graph.",
             "Added code-splitting to reduce bundle size and improve load time. Added virtualization to the product list with infinite scrolling to ensure smooth page performance.",
             "Participated in migrating the project from legacy (Webpack, React 17) to Next.js 14 and Turborepo.",
