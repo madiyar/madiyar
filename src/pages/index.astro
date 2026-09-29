@@ -2,9 +2,10 @@
 import { Picture } from 'astro:assets';
 
 import Layout from '@/layouts/Layout.astro';
-import Time from '@/components/Time.astro';
+import Nav from '@/components/Nav.astro';
+import Composer from '@/components/Composer.astro';
 import CopyEmail from '@/components/CopyEmail.astro';
-// import Map from '../components/Map.astro';
+import Map from '@/components/Map.astro';
 
 import me from "@/assets/me.webp";
 import pdf from "@/assets/pdf.png";
@@ -12,119 +13,301 @@ import pdf from "@/assets/pdf.png";
 import resume from "cv/resume.json";
 
 const links = resume.basics.profiles;
+const telegram = links.find(link => link.network === 'Telegram')!.url;
 
 ---
 
 <Layout>
-  <main class="px-6 max-w-2xl mx-auto text-shadow-lg text-shadow-amber-500/10">
-    <nav class="flex justify-between items-center py-1.5 sticky top-0 bg-zinc-950/50 backdrop-blur-sm z-10">
-      <a href="https://madiyar.dev" class="text-md font-semibold">madiyar</a>
-      <Time />
-    </nav>
-    
-    <header class="text-center py-10">
-      <h1 class="text-6xl md:text-7xl font-semibold">madiyar</h1>
-      <h2>Frontend Developer</h2>
+  <Nav />
+
+  <main class="mx-auto max-w-2xl px-4 pb-36">
+    <header id="top" class="pt-28 pb-8 text-center">
+      <h1 id="hero-name" class="hero-title text-6xl font-semibold tracking-tight md:text-7xl">madiyar<span class="sr-only"> Bolatov</span></h1>
+      <p class="hero-fade mt-1 text-zinc-400 [animation-delay:0.1s]">Frontend Developer</p>
+      <p class="stamp hero-fade mt-10 [animation-delay:0.2s]">
+        <span class="font-semibold">iMessage</span><br />
+        Today <span data-now></span>
+      </p>
     </header>
-  
-    <section class="flex flex-col items-start">
-      <div class="imessage">
-        Hey! 👋
-      </div>
-      <div class="imessage">
-        I’m Madiyar Bolatov, frontend developer based in Almaty, Kazakhstan 🇰🇿
-      </div>
-      <div class="imessage">
-        I enjoy turning complex stuff into clean interfaces. Been doing this for 5+ years now.
-      </div>
-      <div class="imessage last">
-        Right now I’m at <a href="https://bcc.kz" rel="noopener noreferrer" target="_blank" class="hover:underline" title="Bank CenterCredit">BCC</a>, working on AI Studio — an LLM-based platform for chat, agents, and workflows.
-      </div>
 
-      <Picture
-        src={me}
-        alt="me"
-        width={190}
-        loading="eager"
-        draggable={false}
-        pictureAttributes={{ class: "w-40 md:w-44 block no-drag" }}
-      />
-
-      <div class="imessage last">
-        If you’re curious about my work, you can grab my CV or just text me on Telegram 😊
+    <section class="flex flex-col gap-0.5" aria-label="Chat">
+      <div class="row them">
+        <div class="bubble them" data-msg="them">Hey! 👋</div>
       </div>
-
-      <a
-        href="/cv.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex flex-col items-center cursor-pointer group gap-1 my-4"
-      >
-        <div class="transition-all p-0.5 rounded border-2 border-transparent group-hover:bg-white/15 group-hover:border-white/40 group-active:bg-white/15 group-active:border-white/40">
-          <Picture
-            src={pdf}
-            alt="PDF icon"
-            width={128}
-            height={128}
-            draggable={false}
-            pictureAttributes={{ class: "w-20 block no-drag" }}
-          />
+      <div class="row them">
+        <div class="bubble them" data-msg="them">
+          I’m Madiyar Bolatov, frontend developer based in Almaty, Kazakhstan 🇰🇿
         </div>
-        <p class="transition-all font-medium rounded px-1 group-hover:bg-pdf group-active:bg-pdf">cv.pdf</p>
-      </a>
+      </div>
+      <div class="row them">
+        <Map />
+      </div>
+
+      <div class="row me mt-3">
+        <div class="bubble me tail" data-msg="me" data-react="👍">What do you do?</div>
+        <div class="receipt"><span></span></div>
+      </div>
+
+      <div class="row them mt-3">
+        <div class="bubble them" data-msg="them">
+          I enjoy turning complex stuff into clean interfaces. Been doing this for 5+ years now.
+        </div>
+      </div>
+      <div class="row them">
+        <div class="bubble them tail" data-msg="them">
+          Right now I’m at <a href="https://bcc.kz" rel="noopener noreferrer" target="_blank" title="Bank CenterCredit">BCC</a>, working on AI Studio — an LLM-based platform for chat, agents, and workflows.
+        </div>
+      </div>
+      <div class="row them">
+        <Picture
+          src={me}
+          alt="Sticker of me with a thumbs up"
+          width={190}
+          loading="eager"
+          draggable={false}
+          pictureAttributes={{ class: "sticker w-40 md:w-44 block", "data-msg": "them" }}
+          class="no-drag"
+        />
+      </div>
+
+      <div class="row me mt-3">
+        <div class="bubble me tail" data-msg="me">Can I see your CV?</div>
+        <div class="receipt"><span></span></div>
+      </div>
+
+      <div class="row them mt-3">
+        <div class="bubble them tail" data-msg="them">
+          Sure! Grab it here, or just text me on <a href={telegram} rel="noopener noreferrer" target="_blank">Telegram</a> 😊
+        </div>
+      </div>
+      <div class="row them">
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group my-3 flex cursor-pointer flex-col items-center gap-1"
+          data-msg="them-quick"
+        >
+          <div class="rounded border-2 border-transparent p-0.5 transition-all group-hover:border-white/40 group-hover:bg-white/15 group-active:border-white/40 group-active:bg-white/15">
+            <Picture
+              src={pdf}
+              alt="PDF icon"
+              width={128}
+              height={128}
+              draggable={false}
+              pictureAttributes={{ class: "w-20 block no-drag" }}
+            />
+          </div>
+          <p class="rounded px-1 font-medium transition-all group-hover:bg-pdf group-active:bg-pdf">cv.pdf</p>
+        </a>
+      </div>
     </section>
 
-    <!-- <Map /> -->
-
-    <section class="flex flex-col gap-4 mt-12 mb-20">
-      <div class="inline-flex items-center group">
-        <h3 class="text-4xl md:text-5xl font-semibold select-all">
-          hi@madiyar.dev
-        </h3>
+    <section class="mt-14 mb-16 flex flex-col gap-4" data-msg="plain">
+      <div class="flex items-center">
+        <h2 class="select-all text-4xl font-semibold tracking-tight md:text-5xl">hi@madiyar.dev</h2>
         <CopyEmail />
       </div>
 
-      <div class="flex flex-wrap gap-2 text-lg">
+      <div class="flex flex-wrap gap-2">
         {links.map(link => (
           <a
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 card-link"
+            class="glass inline-flex h-10 items-center gap-1 rounded-full pl-4 pr-3 text-[17px] transition-colors hover:text-amber-300"
           >
             {link.network.toLocaleLowerCase()}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
           </a>
         ))}
       </div>
     </section>
 
-    <section class="mb-20">
-      <div class="imessage last inline-flex items-center gap-1.5">
-        <span class="text-amber-400 animate-pulse text-xs">✦</span> Here are some projects I worked on
+    <section class="flex flex-col gap-0.5" aria-label="Projects">
+      <div class="row me">
+        <div class="bubble me tail" data-msg="me" data-react="❤️">Any side projects?</div>
+        <div class="receipt"><span></span></div>
       </div>
 
-      <div class="flex gap-3 my-5 columns-2">
+      <div class="row them mt-3">
+        <div class="bubble them" data-msg="them">
+          <span class="text-amber-400">✦</span> A few! Here’s one
+        </div>
+      </div>
+
+      <div class="row them">
         <a
+          href="https://www.npmjs.com/package/smartbanner-tsx"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.npmjs.com/package/smartbanner-tsx"
-          class="w-full md:max-w-1/2 flex flex-col gap-1 py-5 px-4 rounded-2xl card-link"
+          class="bubble them tail block w-72 p-0! transition-transform duration-300 hover:scale-[1.02]"
+          data-msg="them"
         >
-          <h3 class="text-lg font-semibold">smartbanner-tsx</h3>
-          <p class="text-sm text-zinc-400 text-shadow-none">Smart App Banner for React</p>
-          <p class="text-sm text-zinc-500 text-shadow-none">React 18 • TypeScript</p>
+          <div class="overflow-hidden rounded-t-[1.2rem]">
+            <div class="flex h-36 items-center justify-center bg-gradient-to-br from-indigo-500 via-sky-500 to-cyan-400 px-5">
+              <div class="flex w-full items-center gap-2.5 rounded-2xl bg-white/85 p-2 text-zinc-900 shadow-lg backdrop-blur">
+                <span class="size-9 shrink-0 rounded-[10px] bg-gradient-to-b from-amber-300 to-orange-500"></span>
+                <span class="flex min-w-0 flex-1 flex-col leading-tight">
+                  <span class="text-[13px] font-semibold">Your App</span>
+                  <span class="text-[11px] text-zinc-500">On the App Store</span>
+                </span>
+                <span class="rounded-full bg-[#0a84ff] px-3 py-1 text-[12px] font-semibold text-white">View</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col px-3.5 py-2.5 no-underline">
+            <span class="text-[15px] font-semibold">smartbanner-tsx</span>
+            <span class="text-[13px] text-zinc-400">Smart App Banner for React · React 18, TypeScript</span>
+            <span class="mt-0.5 text-[13px] text-zinc-500">npmjs.com</span>
+          </div>
         </a>
       </div>
+
+      <p class="stamp mt-10" data-msg="plain">psst — double-tap a message ❤️</p>
     </section>
-
   </main>
+
+  <Composer href={telegram} />
+
+<script>
+  import { almatyTime } from '@/shared/time';
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const items = [...document.querySelectorAll<HTMLElement>('[data-msg]')];
+  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
+  let receipt: HTMLElement | null = null;
+
+  function setReceipt(next: HTMLElement | null, html: string) {
+    if (receipt && receipt !== next) receipt.classList.remove('on');
+    receipt = next;
+    if (!next) return;
+    next.firstElementChild!.innerHTML = html;
+    next.classList.add('on');
+  }
+
+  function markRead() {
+    if (receipt?.classList.contains('on') && receipt.textContent === 'Delivered') {
+      setReceipt(receipt, `<b class="font-semibold">Read</b> ${almatyTime()}`);
+    }
+  }
+
+  function toggleTapback(bubble: HTMLElement, emoji: string) {
+    const existing = bubble.querySelector('.tapback');
+    if (existing) {
+      existing.classList.add('out');
+      bubble.classList.remove('reacted');
+      setTimeout(() => existing.remove(), 200);
+      return;
+    }
+
+    const tapback = document.createElement('span');
+    tapback.className = 'tapback';
+    tapback.textContent = emoji;
+    tapback.setAttribute('aria-label', `Reacted ${emoji}`);
+    bubble.classList.add('reacted');
+    bubble.append(tapback);
+  }
+
+  function reveal(el: HTMLElement) {
+    el.classList.add('shown');
+
+    if (el.dataset.msg === 'me') {
+      setReceipt(el.parentElement!.querySelector<HTMLElement>('.receipt'), 'Delivered');
+    }
+
+    const react = el.dataset.react;
+    if (react) setTimeout(() => toggleTapback(el, react), reduce ? 0 : 700);
+  }
+
+  // resolves once the element scrolls near the viewport
+  function reach(el: HTMLElement) {
+    const near = () => el.getBoundingClientRect().top < innerHeight * 0.9;
+    if (near()) return Promise.resolve();
+
+    return new Promise<void>(resolve => {
+      const check = () => {
+        if (!near()) return;
+        removeEventListener('scroll', check);
+        removeEventListener('resize', check);
+        resolve();
+      };
+      addEventListener('scroll', check, { passive: true });
+      addEventListener('resize', check);
+    });
+  }
+
+  async function type(el: HTMLElement) {
+    const dots = document.createElement('div');
+    dots.className = 'typing';
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    el.parentElement!.append(dots);
+
+    const length = el.textContent?.trim().length ?? 0;
+    await sleep(Math.min(750, 250 + length * 4));
+
+    dots.classList.add('out');
+    setTimeout(() => dots.remove(), 180);
+  }
+
+  async function play() {
+    await sleep(350);
+
+    let prev: string | undefined;
+    let prevEl: HTMLElement | undefined;
+    for (const el of items) {
+      await reach(el);
+
+      const kind = el.dataset.msg;
+      // reader scrolled past the last shown message: catch up instead of leaving a blank screen
+      const behind = !!prevEl && prevEl.getBoundingClientRect().bottom < innerHeight * 0.15;
+
+      if (behind) {
+        await sleep(30);
+      } else {
+        if (kind === 'them') {
+          await sleep(prev === 'me' ? 300 : 60);
+          markRead();
+          await type(el);
+        } else if (kind === 'me') {
+          await sleep(350);
+        } else {
+          await sleep(120);
+        }
+      }
+
+      if (kind?.startsWith('them')) markRead();
+      reveal(el);
+      prev = kind;
+      prevEl = el;
+    }
+  }
+
+  if (reduce) items.forEach(reveal);
+  else play();
+
+  // double-tap a bubble to heart it, like iMessage
+  let last: { el: Element | null; at: number } = { el: null, at: 0 };
+
+  document.addEventListener('mousedown', (e) => {
+    if (e.detail > 1 && (e.target as Element).closest('.bubble')) e.preventDefault();
+  });
+
+  document.addEventListener('pointerup', (e) => {
+    const target = e.target as Element;
+    const bubble = target.closest<HTMLElement>('.bubble.shown');
+    if (!bubble || target.closest('a')) return;
+
+    const now = performance.now();
+    if (last.el === bubble && now - last.at < 350) {
+      toggleTapback(bubble, '❤️');
+      navigator.vibrate?.(10);
+      last = { el: null, at: 0 };
+    } else {
+      last = { el: bubble, at: now };
+    }
+  });
+</script>
 </Layout>
-
-
-<!-- https://fonts.google.com/specimen/Instrument+Serif -->
-<!-- https://deeo.studio/ -->
- <!-- https://www.dtampe.com/ -->
-	<!-- https://www.airborne.studio/ -->
-<!-- https://www.vishnu.design/ -->
- <!-- https://hellodani.co/ -->

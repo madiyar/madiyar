@@ -1,12 +1,46 @@
 ---
 import "@/shared/global.css";
 import resume from "cv/resume.json";
+
+const { basics, work, skills } = resume;
+
+const title = `${basics.name} — ${basics.label} in ${basics.location.city}`;
+const description = `${basics.name}, frontend developer in Almaty, Kazakhstan. 5+ years building React & TypeScript interfaces, now working on AI Studio at Bank CenterCredit.`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og.png', Astro.site).href;
+const currentJob = work.find(job => !job.endDate);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: canonical,
+  mainEntity: {
+    '@type': 'Person',
+    name: basics.name,
+    alternateName: 'madiyar',
+    jobTitle: basics.label,
+    url: basics.url,
+    email: `mailto:${basics.email}`,
+    image: ogImage,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: basics.location.city,
+      addressCountry: basics.location.countryCode,
+    },
+    ...(currentJob && {
+      worksFor: { '@type': 'Organization', name: currentJob.name, url: currentJob.url },
+    }),
+    knowsAbout: skills.flatMap(group => group.keywords.flatMap(k => k.split(/,\s*(?![^()]*\))/))),
+    sameAs: basics.profiles.map(profile => profile.url),
+  },
+};
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#09090b" />
     <meta name="robots" content="noimageindex" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -15,42 +49,73 @@ import resume from "cv/resume.json";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
 
-    <title>{resume.basics.name}</title>
-    <meta name="description" content="Software engineer based in Almaty, KZ specializing in frontend development." />
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://madiyar.dev" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Madiyar Bolatov" />
-    <meta
-      property="og:description"
-      content="Software engineer based in Almaty, KZ specializing in frontend development."
-    />
-    <meta property="og:image" content="/og.png" />
-    <!-- Twitter Meta Tags -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      // only Chromium can run SVG filters inside backdrop-filter
+      if ('userAgentData' in navigator) document.documentElement.classList.add('lg');
+    </script>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={basics.name} />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="madiyar.dev" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="profile:first_name" content="Madiyar" />
+    <meta property="profile:last_name" content="Bolatov" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content="madiyar.dev" />
-    <meta property="twitter:url" content="https://madiyar.dev" />
-    <meta name="twitter:title" content="Madiyar Bolatov" />
-    <meta
-      name="twitter:description"
-      content="Software engineer based in Almaty, KZ specializing in frontend development."
-    />
-    <meta name="twitter:image" content="/og.png" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
+    <svg width="0" height="0" class="absolute" aria-hidden="true">
+      <filter id="liquid-glass" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="2" result="soft" />
+        <feDisplacementMap in="SourceGraphic" in2="soft" scale="36" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+
     <slot />
+
+    <script>
+      // sheen on liquid glass follows the pointer
+      document.addEventListener('pointermove', (e) => {
+        const el = (e.target as Element).closest<HTMLElement>('.glass');
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        el.style.setProperty('--my', `${e.clientY - r.top}px`);
+      }, { passive: true });
+    </script>
+
+    <script is:inline>
+      console.clear();
+      console.log(
+        "%c🇰🇿🇺🇦🇵🇸",
+        "font-size: 48px;",
+      );
+      console.log("%cResum (CV) → https://madiyar.dev/cv.pdf", "font-weight: semibold; font-size: 16px");
+      console.log("%cTelegram → https://t.me/kawaii_neko", "font-weight: semibold; font-size: 16px");
+      console.log("%cLinkedIn → https://linkedin.com/in/madiyarkz", "font-weight: semibold; font-size: 16px");
+      console.log("%cGitHub → https://github.com/madiyar", "font-weight: semibold; font-size: 16px");
+      console.log("%cE-mail → hi@madiyar.dev", "font-weight: semibold; font-size: 16px");
+    </script>
   </body>
 </html>
-
-<script is:inline>
-  console.clear();
-  console.log(
-    "%c🇰🇿🇺🇦🇵🇸",
-    "font-size: 48px;",
-  );
-  console.log("%cResum (CV) → https://madiyar.dev/cv.pdf", "font-weight: semibold; font-size: 16px");
-  console.log("%cTelegram → https://t.me/kawaii_neko", "font-weight: semibold; font-size: 16px");
-  console.log("%cLinkedIn → https://linkedin.com/in/madiyarkz", "font-weight: semibold; font-size: 16px");
-  console.log("%cGitHub → https://github.com/madiyar", "font-weight: semibold; font-size: 16px");
-  console.log("%cE-mail → hi@madiyar.dev", "font-weight: semibold; font-size: 16px");
-</script>

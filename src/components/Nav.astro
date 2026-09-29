@@ -1,0 +1,46 @@
+---
+import Time from '@/components/Time.astro';
+
+const email = "hi@madiyar.dev";
+---
+
+<header class="fixed inset-x-0 top-0 z-30">
+  <div class="edge top"></div>
+
+  <nav class="relative mx-auto flex h-16 max-w-2xl items-center justify-between px-4 pt-[env(safe-area-inset-top)]">
+    <div class="glass flex h-11 items-center rounded-full px-4 text-sm font-medium">
+      <Time />
+    </div>
+
+    <button
+      type="button"
+      class="glass contact-pill absolute left-1/2 flex h-11 -translate-x-1/2 cursor-pointer items-center gap-2 rounded-full pl-1.5 pr-3.5"
+      aria-label="Back to top"
+    >
+      <span class="avatar size-8 text-[13px]">MB</span>
+      <span class="text-sm font-semibold">madiyar</span>
+      <svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400" aria-hidden="true"><path d="m2 2 4 4-4 4"/></svg>
+    </button>
+
+    <a href={`mailto:${email}`} class="glass grid size-11 place-items-center rounded-full" aria-label="Email me">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg>
+    </a>
+  </nav>
+</header>
+
+<script>
+  // like iOS large titles: the contact pill appears once the hero name scrolls away
+  const pill = document.querySelector('.contact-pill');
+  const title = document.getElementById('hero-name');
+
+  pill?.addEventListener('click', () => {
+    const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+  });
+
+  if (pill && title) {
+    new IntersectionObserver(([entry]) => {
+      pill.classList.toggle('on', !entry.isIntersecting);
+    }, { rootMargin: '-64px 0px 0px 0px' }).observe(title);
+  }
+</script>

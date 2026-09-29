@@ -1,0 +1,59 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<div class="fixed inset-x-0 bottom-0 z-30">
+  <div class="edge bottom"></div>
+
+  <div class="relative mx-auto max-w-2xl px-4 pb-[max(env(safe-area-inset-bottom),14px)]">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="glass flex h-12 items-center justify-between rounded-full pl-5 pr-1.5"
+      aria-label="Text me on Telegram"
+    >
+      <span class="truncate text-[17px] text-zinc-400" data-typer>Text me on Telegram</span>
+      <span class="grid size-9 shrink-0 place-items-center rounded-full bg-[#0a84ff]">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+      </span>
+    </a>
+  </div>
+</div>
+
+<script>
+  const el = document.querySelector<HTMLElement>('[data-typer]');
+  const phrases = ['Text me on Telegram', 'Hiring? Let’s talk 👋', 'Got a cool project?', 'Say hi…'];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
+  async function loop(el: HTMLElement) {
+    el.classList.add('caret');
+    await sleep(3000);
+
+    for (let i = 1; ; i = (i + 1) % phrases.length) {
+      const chars = [...el.textContent!];
+      while (chars.length) {
+        chars.pop();
+        el.textContent = chars.join('');
+        await sleep(25);
+      }
+
+      await sleep(300);
+
+      const next = [...phrases[i]];
+      for (let n = 1; n <= next.length; n++) {
+        el.textContent = next.slice(0, n).join('');
+        await sleep(55 + Math.random() * 60);
+      }
+
+      await sleep(3200);
+    }
+  }
+
+  if (el && !reduce) loop(el);
+</script>

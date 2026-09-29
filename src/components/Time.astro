@@ -1,22 +1,17 @@
 ---
 ---
 
-<div id="time" class="flex items-baseline gap-1">
-  <span id="time-value"></span>
-  <span class="text-zinc-400 text-xs">GMT+5</span>
+<div class="flex items-baseline gap-1">
+  <span data-now></span>
+  <span class="hidden text-zinc-400 text-[11px] sm:inline">GMT+5</span>
 </div>
 
 <script>
-  const el = document.getElementById('time-value');
+  import { almatyTime } from '@/shared/time';
 
   function updateTime() {
-    const now = new Date().toLocaleTimeString('en-US', {
-      timeZone: 'Asia/Almaty',
-      hour: 'numeric',
-      minute: '2-digit',
-      // timeZoneName: 'short'
-    });
-    el!.textContent = now;
+    const now = almatyTime();
+    document.querySelectorAll('[data-now]').forEach(el => (el.textContent = now));
   }
 
   updateTime();
